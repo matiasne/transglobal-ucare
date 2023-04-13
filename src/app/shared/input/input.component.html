@@ -1,0 +1,104 @@
+<mat-form-field [ngSwitch]="type" [class]="{'mat-form-field-invalid':errorShow}" [hintLabel]="hint" [autofilled]="false">
+  <mat-label [class]="{'asterisk_input': isRequired}">{{label}}</mat-label>
+  <mat-icon *ngIf="prefix>''" matPrefix>{{prefix}}</mat-icon>
+  <mat-select #moMatSelect *ngSwitchCase="'select'"
+              [disabled]="disabled"
+              (selectionChange)="_handleInput($event)"
+              (keydown.enter)="_onEnter()"
+              [(value)]="selectedValue">
+    <mat-option *ngFor="let item of data" [value]="getValue(item)">
+      {{getLabel(item)}}
+    </mat-option>
+  </mat-select>
+
+  <mat-select #moMatSelect *ngSwitchCase="'select-multi'" multiple
+              [disabled]="disabled"
+              (selectionChange)="_handleInput($event)"
+              (keydown.enter)="_onEnter()"
+              [(value)]="selectedValue">
+    <mat-option *ngFor="let item of data" [value]="getValue(item)">
+      {{getLabel(item)}}
+    </mat-option>
+  </mat-select>
+
+  <textarea #moInput matInput *ngSwitchCase="'textarea'"
+            placeholder="{{placeholder}}"
+            [disabled]="disabled"
+            [readonly]="readonly"
+            (input)="_handleInput($event.target)"
+            (blur)="callOnTouched()"
+            [rows]="rows"
+            (compositionstart)="_compositionStart()"
+            (compositionend)="_compositionEnd($event.target)"
+            (keydown.enter)="_onEnter()"></textarea>
+
+  <input *ngSwitchCase="'date'" #moInput matInput [matDatepicker]="datePicker"
+         placeholder="{{placeholder}}"
+         type="text" mask="d0/M0/0000"
+         [disabled]="disabled"
+         [readonly]="false"
+         (dateInput)="onChangeDate('input', $event)"
+         (dateChange)="onChangeDate('change', $event)"
+         (blur)="callOnTouched()"
+         (compositionstart)="_compositionStart()"
+         (compositionend)="_compositionEnd($event.target)"
+         (keydown.enter)="_onEnter()"
+         (click)="datePicker.open()">
+  <mat-datepicker-toggle *ngIf="type==='date'" [disabled]="disabled" matSuffix [for]="datePicker">
+    <mat-icon matDatepickerToggleIcon>calendar_today</mat-icon>
+  </mat-datepicker-toggle>
+  <mat-datepicker #datePicker></mat-datepicker>
+
+  <ngx-material-timepicker #timePicker [appendToInput]="true" [format]="24" [disabled]="disabled" [controlOnly]="showTimePickerIcon" (timeChanged)="onChangeTime('change2', $event)" [enableKeyboardInput]="true"></ngx-material-timepicker>
+  <input *ngSwitchCase="'time'" #moInput matInput [ngxTimepicker]="timePicker" [format]="24"
+         placeholder="{{placeholder}}"
+         [disabled]="disabled"
+         [readonly]="true"
+         (blur)="callOnTouched()"
+         (compositionstart)="_compositionStart()"
+         (compositionend)="_compositionEnd($event.target)"
+         (keydown.enter)="_onEnter()"
+         (focus)="_onFocus()">
+  <button mat-button *ngIf="type==='time'" matSuffix mat-icon-button (click)="timePicker.open()" [disabled]="disabled">
+    <mat-icon>schedule</mat-icon>
+  </button>
+
+  <input #moInput matInput *ngSwitchCase="'auto'"
+         placeholder="{{placeholder}}"
+         type="text"
+         [disabled]="disabled"
+         [readonly]="readonly"
+         (input)="_handleInput($event.target)"
+         (blur)="callOnTouched()"
+         (compositionstart)="_compositionStart()"
+         (compositionend)="_compositionEnd($event.target)"
+         (keydown.enter)="_onEnter()"
+         (focus)="_onFocus()"
+         autocomplete="{{autoCompleteInput}}"
+         [matAutocomplete]="auto" />
+  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="onAutoSelect($event)">
+    <mat-option *ngFor="let item of data" [value]="getValue(item)">
+      {{getLabel(item)}}
+    </mat-option>
+  </mat-autocomplete>
+
+  <input #moInput matInput *ngSwitchDefault
+         placeholder="{{placeholder}}"
+         [type]="type"
+         [disabled]="disabled"
+         [readonly]="readonly"
+         (input)="_handleInput($event.target)"
+         (blur)="callOnTouched()"
+         (compositionstart)="_compositionStart()"
+         (compositionend)="_compositionEnd($event.target)"
+         (keydown.enter)="_onEnter()"
+         (focus)="_onFocus()"
+         autocomplete="{{autoCompleteInput}}" />
+  <label *ngIf="suffix>''" matSuffix>{{suffix}}</label>
+  <button mat-button *ngIf="icon>''" matSuffix mat-icon-button (click)="onClickIcon()">
+    <mat-icon>{{icon}}</mat-icon>
+  </button>
+  <mat-hint *ngIf="errorText!=null" class="mat-error error" [innerHTML]="errorText"></mat-hint>
+</mat-form-field>
+
+<mat-hint *ngIf="errorText!=null && type==='time'" class="mat-error error" style="font-size: 75%" [innerHTML]="errorText"></mat-hint>

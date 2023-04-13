@@ -1,0 +1,19 @@
+<gq-search-crud windowsTitle="Usuarios"
+                descripcion="Aquí podrás determinar la cantidad de usuarios activos que pueden existir en el sistema."
+                [showExport]="false"
+                [showImport]="false"
+                [showAdd]="false"
+                [showSearch]="false">
+  <form *ngIf="formEdit!==undefined" [formGroup]="formEdit">
+    <div class="panel">
+      <div>
+        <label><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">person</mat-icon> Usuarios totales</label>
+        <gq-input formControlName="usuarioActivosMaximos" type="number"></gq-input>
+        <div>
+          <gq-button icon="done" (click)="onSave()"></gq-button>
+          <gq-button icon="close" (click)="onCancel()"></gq-button>
+        </div>
+      </div>
+    </div>
+  </form>
+</gq-search-crud>

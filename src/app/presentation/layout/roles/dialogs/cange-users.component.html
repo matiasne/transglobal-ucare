@@ -1,0 +1,7 @@
+<div class="header1"><mat-icon fontSet="material-icons-outlined">{{data.icon}}</mat-icon> {{data.header1}}</div>
+<div class="header2">{{data.header2}}</div>
+<gq-input label="{{data.labeInput}}" [(ngModel)]="selected" type="select" [ngModelOptions]="{standalone: true}" [data]="datagrid" dataLabel="usuarioNombre" ></gq-input>
+<div class="footer1 f-center">
+  <gq-button label="Cancelar" type="stroked-button" (click)="onCancel()"></gq-button>
+  <gq-button label="{{data.buttonAction}}" (click)="onClickAction()"></gq-button>
+</div>

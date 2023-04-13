@@ -1,0 +1,16 @@
+<div class="header1">Enviar comunicado</div>
+<div class="com-header">
+  <span>Afiliados <b>{{data.totalAfiliados}}</b></span>
+  <mat-slide-toggle [(ngModel)]="enviarAhora">{{enviarAhora?'Enviar ahora':'Programar el envío'}}</mat-slide-toggle>
+  <gq-input label="" type="date" [(ngModel)]="fecha" [disabled]="enviarAhora"></gq-input>
+  <gq-input label="" type="time" [(ngModel)]="hora" [disabled]="enviarAhora"></gq-input>
+</div>
+<div class="com-body">
+  <gq-input label="Título" type="text" [(ngModel)]="titulo"></gq-input>
+  <gq-input label="Mensaje" type="textarea" [(ngModel)]="mensaje"></gq-input>
+</div>
+<div class="footer1 f-center">
+  <mat-slide-toggle [(ngModel)]="estado">{{estado?'Activo':'Edicion'}}</mat-slide-toggle>
+  <gq-button label="Cerrar" type="stroked-button" (click)="onCancel()"></gq-button>
+  <gq-button *ngIf="!(data.entity?.enviado??false)" label="Guardar" (click)="onClickAction()"></gq-button>
+</div>

@@ -1,0 +1,20 @@
+<div class="logo">
+  <img src="assets/images/logo-w.png" alt="U Care" />
+</div>
+<div class="bienvenida1">
+  Cambio de clave
+</div>
+<div class="bienvenida2">
+  Podrás cambiar la clave de tu cuenta
+</div>
+<div class="login-position">
+  <form [formGroup]="formLogin">
+    <gq-input label="Código" placeholder="Código" formControlName="codigo" ></gq-input>
+    <gq-input label="Contraseña" placeholder="Ingresa tu contraseña" formControlName="password1" type="password" icon="visibility" (clickIcon)="onClickIconPassword($event)"></gq-input>
+    <gq-input label="Validar" placeholder="Ingresa tu contraseña" formControlName="password2" type="password" icon="visibility" (clickIcon)="onClickIconPassword($event)" (onEnter)="onClickCambiar()"></gq-input>
+    <mat-error>{{showError ? 'Nombre de usuario o contraseña incorrectos':''}}</mat-error>
+  </form>
+  <gq-button label="Cambiar contraseña" classStyle="w-100" (click)="onClickCambiar()"></gq-button>
+</div>
+
+<small>{{versionServer}}</small>

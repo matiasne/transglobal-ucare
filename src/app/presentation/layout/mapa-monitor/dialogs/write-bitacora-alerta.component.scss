@@ -1,0 +1,45 @@
+:host {
+  width: 800px;
+}
+
+.header1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header2 {
+}
+
+.text-body {
+  box-sizing: border-box;
+  width: 747px;
+  height: 202px;
+  border: 1px solid #8D99AE;
+  border-radius: 4px;
+  overflow-y: auto;
+  background: #FFFFFF;
+}
+
+.text-body > textarea {
+  width: calc(100% - 10px);
+  height: calc(100% - 30px);
+  border: none;
+  outline: none;
+  overflow: auto;
+}
+
+mat-icon {
+  font-size: 68px !important;
+}
+
+.footer1 > * {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  font-size: 8px;
+}

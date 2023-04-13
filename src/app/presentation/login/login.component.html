@@ -1,0 +1,29 @@
+<div class="logo">
+  <img src="assets/images/logo-w.png" alt="U Care" />
+</div>
+<div class="bienvenida1">
+  ¡Hola bienvenido/a!
+</div>
+<div class="bienvenida2">
+  Podrás iniciar sesión según tu cargo asignado
+</div>
+<div *ngIf="!showRecuperar" class="login-position">
+  <form [formGroup]="formLogin">
+    <gq-input label="Email" placeholder="Ingresa tu email" formControlName="username"></gq-input>
+    <gq-input label="Contraseña" placeholder="Ingresa tu contraseña" formControlName="password" type="password" icon="visibility" (clickIcon)="onClickIconPassword($event)" (onEnter)="onClickLogin()"></gq-input>
+    <mat-error>{{showError ? 'Nombre de usuario o contraseña incorrectos':''}}</mat-error>
+  </form>
+  <div>
+    <gq-button label="¿Olvidaste tu contraseña?" color="warn" type="button-link" (click)="onClickShowRecuperar()"></gq-button>
+  </div>
+  <gq-button label="Iniciar sesión" classStyle="w-100" (click)="onClickLogin()"></gq-button>
+</div>
+<div *ngIf="showRecuperar" class="login-position">
+  <gq-button label="Volver" type="button-link" (click)="onClickVolver()"></gq-button>
+  <form [formGroup]="formRecuperar">
+    <gq-input label="Email" placeholder="Ingresa tu email" formControlName="username"></gq-input>
+    <mat-error>{{showError ? 'Nombre de usuario no existe':''}}</mat-error>
+  </form>
+  <gq-button label="Recuperar Contraseña" classStyle="w-100" (click)="onClickRecuperar()"></gq-button>
+</div>
+<small>{{versionServer}}</small>

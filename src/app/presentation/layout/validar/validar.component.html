@@ -1,0 +1,70 @@
+<gq-search-crud *ngIf="isModeSearch()"
+                [page]="page"
+                [showExport]="false"
+                [showImport]="false"
+                [showAdd]="false"
+                [showSearch]="false"
+                [columnDefs]="columnDefs"
+                (onItemClicked)="onGridRowClicked($event)"
+                (onClickAdd)="onAdd()"
+                (onClickSearch)="onClickSearch($event)"
+                (onSearch)="onSearch()"
+                windowsTitle="Verificación de Usuarios"
+                descripcion=""
+                addText="Agregar"
+                filterText="Filtrar Roles">
+  <div class="search">
+    <div class="button" (click)="onSelectNoAfiliad()" [class]="{'selected':IsNoAfiliado}">
+      <div class="icon-estado purple"></div>
+      <div class="label-estado">No Afiliados </div>
+    </div>
+    <div class="button" (click)="onSelectAfiliado()" [class]="{'selected':IsAfiliado}">
+      <div class="icon-estado blue"></div>
+      <div class="label-estado">Afiliados </div>
+    </div>
+    <div class="button" (click)="onSelectProvisorio()" [class]="{'selected':IsProvisorio}">
+      <div class="icon-estado yellow"></div>
+      <div class="label-estado">Activo Provisorio</div>
+    </div>
+    <div class="button" (click)="onSelectActivos()" [class]="{'selected':IsActivos}">
+      <div class="icon-estado green"></div>
+      <div class="label-estado">Activos </div>
+    </div>
+    <div class="button" (click)="onSelectInactivos()" [class]="{'selected':IsInactivos}">
+      <div class="icon-estado red"></div>
+      <div class="label-estado">Inactivos </div>
+    </div>
+    <form *ngIf="formSearch!==undefined" [formGroup]="formSearch" class="form-cols form-4-cols" style="position:relative; width: 100%;" autocomplete="off">
+      <gq-input label="Número de Identidad" formControlName="numeroIdentidad" type="text"></gq-input>
+      <gq-input label="Teléfono" formControlName="celular" type="text"></gq-input>
+      <gq-input label="Email" formControlName="email" type="text"></gq-input>
+      <gq-input label="Género" formControlName="sexo" type="select" [data]="sexosAfiliadoTodos"></gq-input>
+      <gq-button style=" position: absolute; top: 10px; right: 30px; width: auto;" icon="search" (click)="onSearch()"></gq-button>
+    </form>
+  </div>
+</gq-search-crud>
+
+<gq-editpanel *ngIf="isModeEdit() || isModeAdd()" (onClickCancel)="onCancelButton()" (onClickSave)="onSave()" (onClickEdit)="onHabilitateEdit()" [notShowEditAndSave]="true" [showReturn]="false" (onClickReturn)="onCancelAfter(false)">
+  <form *ngIf="formEdit!==undefined" [formGroup]="formEdit" class="form-cols form-2-cols" autocomplete="off">
+    <gq-input label="Nombre y Apellido" formControlName="usuarioNombre" type="text"></gq-input>
+    <gq-input label="Email" formControlName="email" type="text" [readonly]="true"></gq-input>
+    <gq-input label="Código País" formControlName="codigoPais" type="text" [readonly]="true"></gq-input>
+    <gq-input label="Teléfono" formControlName="celular" type="text" [readonly]="true"></gq-input>
+    <gq-input label="Número de Identidad" formControlName="numeroIdentidad" type="text"></gq-input>
+    <gq-input label="Fecha Nacimiento" formControlName="fechaNacimiento" type="date"></gq-input>
+    <gq-input label="Género" formControlName="sexo" type="select" [data]="sexosAfiliado"></gq-input>
+    <gq-input label="Nosocomio de preferencia" formControlName="nosocomio" ></gq-input>
+    <gq-input label="Estado" formControlName="estado" type="select" [data]="estadosAfiliado"></gq-input>
+  </form>
+
+  <label>Direccion</label>
+  <form *ngIf="formEditDireccion!==undefined" [formGroup]="formEditDireccion" class="form-cols form-2-cols" autocomplete="off">
+    <gq-input label="Calle" formControlName="calle" type="text"></gq-input>
+    <gq-input label="Número" formControlName="nro" type="text"></gq-input>
+    <gq-input label="Departamento" formControlName="departamento" type="text"></gq-input>
+    <gq-input label="Piso" formControlName="piso" type="text"></gq-input>
+    <gq-input label="Barrio" formControlName="barrio" type="text"></gq-input>
+    <gq-input label="Ciudad" formControlName="ciudad" type="text"></gq-input>
+    <gq-input label="Código postal" formControlName="codigoPostal" type="text"></gq-input>
+  </form>
+</gq-editpanel>

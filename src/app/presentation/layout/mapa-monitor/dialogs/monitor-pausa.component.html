@@ -1,0 +1,10 @@
+<div style=" width: 100%; display: flex; justify-content: center; padding-bottom: 50px;">
+  <mat-icon fontSet="material-icons-outlined">{{data.data.state==3?'pause':'wifi_off'}}</mat-icon>
+</div>
+<div class="header1">Se encuentra en estado de {{data.data.state==3?'pausa':'desconectado'}} </div>
+<div class="header2">
+  Llevas {{countCownText}} en pausa. Para salir de este estado haz clic en Activar
+</div>
+<div class="footer1 f-center">
+  <gq-button type="button-form" label="Activar" (click)="onAceptar()"></gq-button>
+</div>

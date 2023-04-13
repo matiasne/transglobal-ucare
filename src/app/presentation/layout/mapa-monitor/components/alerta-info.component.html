@@ -1,0 +1,8 @@
+<div class="item-alert-name"><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">person</mat-icon>{{data?.afiliadoNombreCompleto}}</div>
+<div><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">account_box</mat-icon>{{data?.afiliadoEdad}} años</div>
+<div><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">transgender</mat-icon>{{getSexo(data?.afiliadoSexo??'')}}</div>
+<div><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">call</mat-icon>{{data?.afiliadoTelefonoContacto}}<mat-icon fontSet="material-icons-outlined" style="color: #8D99AE; margin-left: auto;" (click)="onCopyContent(data?.afiliadoTelefonoContacto??'',$event)">content_copy</mat-icon></div>
+<div><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">house</mat-icon><span>{{data?.afiliadoUbicacion}}</span></div>
+<div><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">local_hospital</mat-icon><span>{{data?.afiliadoNosocomio}}</span></div>
+<div><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">schedule</mat-icon>{{ago(data?.creado.modificado)}}</div>
+<div><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">timer</mat-icon>{{ago(data?.modificacion.modificado)}}</div>

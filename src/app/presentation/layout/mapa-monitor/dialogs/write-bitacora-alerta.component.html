@@ -1,0 +1,11 @@
+<div class="header1">Bitácora</div>
+<div class="header2">Aquí podrás redactar un informe sobre la situación.</div>
+<div class="text-body">
+  <textarea [(ngModel)]="bitacora">
+ </textarea>
+  <span class="error">{{error}}</span>
+</div>
+<div class="footer1 f-center">
+  <gq-button type="stroked-button" label="Volver" (click)="onCancel()"></gq-button>
+  <gq-button type="button-form" label="Guardar y cerrar" (click)="onAceptar()"></gq-button>
+</div>

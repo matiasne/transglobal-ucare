@@ -1,0 +1,35 @@
+<gq-search-crud *ngIf="isModeSearch()"
+                [page]="page"
+                [columnDefs]="columnDefs"
+                (onItemClicked)="onGridRowClicked($event)"
+                (onClickAdd)="onAdd()"
+                (onClickSearch)="onClickSearch($event)"
+                (onSearch)="onSearch()"
+                windowsTitle="Comunicados"
+                descripcion="Aquí podrás crear o consultar los comunicados masivos o personales y dirigidos a los usuarios de la aplicación."
+                addText="Agregar"
+                filterText="Filtrar Roles">
+  <form *ngIf="formSearch!==undefined" [formGroup]="formSearch" autocomplete="off">
+    <gq-input label="Estado" formControlName="estado" type="select" [data]="estadosComunicacion"></gq-input>
+    <gq-input label="Estado" formControlName="enviado" type="select" [data]="enviadosTodos"></gq-input>
+    <div></div>
+    <gq-input label="Desde" formControlName="desde" type="date"></gq-input>
+    <gq-input label="Hasta" formControlName="hasta" type="date"></gq-input>
+  </form>
+</gq-search-crud>
+
+<gq-editpanel *ngIf="isModeEdit() || isModeAdd()" [showHeader]="false">
+  <form *ngIf="formSearch2!==undefined" [formGroup]="formSearch2" class="form-cols form-1-cols" autocomplete="off">
+    <div class="form-cols form-4-cols">
+      <gq-input label="Estado" formControlName="estado" type="select" [data]="estadosAfiliado"></gq-input>
+      <ngx-slider [(value)]="edadMin" [(highValue)]="edadMax" [options]="optionsSlider" style="width: calc(25% - 40px); margin-left: 5px; margin-right: 5px;"></ngx-slider>
+      <gq-input label="Genero" formControlName="sexo" type="select" [data]="generosTodos"></gq-input>
+      <div style="display: flex; flex-wrap: nowrap; flex-direction: row; align-content: center; justify-content: space-between; align-items: center;">
+        <gq-button type="mini-fab" icon="search" (click)="onSearchAfiliado()" titleText="Buscar"></gq-button>
+        <gq-button type="button-form" icon="done" (click)="onOpenComunicadoAdd()" [titleText]="item?.id==null?'Crear Comunicado':'Modificar Comunicado'" [label]="item?.id==null?'Crear Comunicado':'Modificar Comunicado'"></gq-button>
+        <gq-button type="button-form" icon="close" (click)="onCancel()" titleText="Cancelar" label="Cancelar"></gq-button>
+      </div>
+    </div>
+    <gq-grid class="w-100" style="height:500px;" [data]="pageAfiliado?.data??[]" [columnDefs]="afiliadosColumnDefs"></gq-grid>
+  </form>
+</gq-editpanel>

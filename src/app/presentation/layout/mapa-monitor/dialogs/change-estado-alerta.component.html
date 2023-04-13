@@ -1,0 +1,10 @@
+<div style=" width: 100%; display: flex; justify-content: center; padding-bottom: 50px;">
+  <mat-icon fontSet="material-icons-outlined">medical_services</mat-icon>
+</div>
+<div class="header1">¿Desea marcarla como {{(data.estado=="E"?"emergencia":(data.estado=="U"?"urgencia":"falsa alarma"))}}?</div>
+<div *ngIf="data.estado=='E' || data.estado=='U'" class="header2">Una vez que confirmes esta acción se enviará la asistencia</div>
+<div *ngIf="data.estado=='F'" class="header2">Una vez que confirmes esta acción se procederá a anular la alarma</div>
+<div class="footer1 f-center">
+  <gq-button type="stroked-button" label="Cancelar" (click)="onCancel()"></gq-button>
+  <gq-button type="button-form" label="Confirmar" (click)="onAceptar()"></gq-button>
+</div>

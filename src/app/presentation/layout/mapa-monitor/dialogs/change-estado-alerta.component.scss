@@ -1,0 +1,33 @@
+:host {
+  width: 800px;
+}
+
+.header1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header2 {
+}
+
+.text-body {
+  box-sizing: border-box;
+  width: 747px;
+  height: 202px;
+  border: 1px solid #8D99AE;
+  border-radius: 4px;
+  overflow-y: auto;
+  background: #FFFFFF;
+}
+
+mat-icon {
+  font-size: 68px !important;
+  width: 68px !important;
+}
+
+
+.footer1 > * {
+  padding-left: 10px;
+  padding-right: 10px;
+}

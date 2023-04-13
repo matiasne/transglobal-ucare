@@ -1,0 +1,5 @@
+<ag-grid-angular *ngIf="gridOptions!==undefined" class="ag-theme-balham"
+                 [gridOptions]="gridOptions"
+                 (gridReady)="onReadyGrid($event)"
+                 [overlayNoRowsTemplate]="noRowsText">
+</ag-grid-angular>

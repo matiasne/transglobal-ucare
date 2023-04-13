@@ -1,0 +1,29 @@
+a {
+  width: 100%;
+  overflow:hidden;
+}
+
+button {
+  text-transform: uppercase;
+}
+
+.btnHistorial{
+    margin-right:5px;
+}
+
+.btnNotes {
+  background-color: var(--mo-secondary-color) !important;
+  border-color: var(--mo-secondary-color) !important;
+}
+.btnImages {
+  background-color: var(--mo-confirmation-color) !important;
+  border-color: var(--mo-confirmation-color) !important;
+}
+.btnVideos {
+  background-color: var(--mo-primary-color) !important;
+  border-color: var(--mo-primary-color) !important;
+}
+.btnVerificationVideo {
+  background-color: var(--mo-background-color) !important;
+  border-color: var(--mo-background-color) !important;
+}

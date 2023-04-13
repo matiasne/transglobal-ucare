@@ -1,0 +1,86 @@
+<ng-template #moButton let-item="item">
+  <button type="button" mat-button matTooltip="{{item.label}}" matTooltipClass="mo-tooltip" color="{{item.color}}" [disabled]="item.disabled" class="{{item.classStyle}}">
+    <mat-icon *ngIf="item.icon>'' && item.positionIcon=='left'">{{item.icon}}</mat-icon>{{item.label}}<ng-content></ng-content>
+    <mat-icon *ngIf="item.icon>'' && item.positionIcon=='right'">{{item.icon}}</mat-icon>
+  </button>
+</ng-template>
+
+<ng-template #moRaisedButton let-item="item">
+  <button type="button" mat-raised-button matTooltip="{{item.label}}" matTooltipClass="mo-tooltip" color="{{item.color}}" [disabled]="item.disabled" class="{{item.classStyle}}">
+    <mat-icon *ngIf="item.icon>'' && item.positionIcon=='left'">{{item.icon}}</mat-icon>{{item.label}}<ng-content></ng-content>
+    <mat-icon *ngIf="item.icon>'' && item.positionIcon=='right'">{{item.icon}}</mat-icon>
+  </button>
+</ng-template>
+
+<ng-template #moStrokedButton let-item="item">
+  <button type="button" mat-stroked-button matTooltip="{{item.label}}" matTooltipClass="mo-tooltip" color="{{item.color}}" [disabled]="item.disabled" class="{{item.classStyle}}">
+    <mat-icon *ngIf="item.icon>'' && item.positionIcon=='left'">{{item.icon}}</mat-icon>{{item.label}}<ng-content></ng-content>
+    <mat-icon *ngIf="item.icon>'' && item.positionIcon=='right'">{{item.icon}}</mat-icon>
+  </button>
+</ng-template>
+
+<ng-template #moFlatButton let-item="item">
+  <button type="button" mat-flat-button matTooltip="{{item.label}}" matTooltipClass="mo-tooltip" color="{{item.color}}" [disabled]="item.disabled" class="{{item.classStyle}}">
+    <mat-icon *ngIf="item.icon>'' && item.positionIcon=='left'">{{item.icon}}</mat-icon>{{item.label}}<ng-content></ng-content>
+    <mat-icon *ngIf="item.icon>'' && item.positionIcon=='right'">{{item.icon}}</mat-icon>
+  </button>
+</ng-template>
+
+<ng-template #moButtonLink let-item="item">
+  <a mat-button matTooltip="{{item.label}}" matTooltipClass="mo-tooltip" color="{{item.color}}" [disabled]="item.disabled" class="{{item.classStyle}}">
+    <mat-icon *ngIf="item.icon>'' && item.positionIcon=='left'">{{item.icon}}</mat-icon>{{item.label}}<ng-content></ng-content>
+    <mat-icon *ngIf="item.icon>'' && item.positionIcon=='right'">{{item.icon}}</mat-icon>
+  </a>
+</ng-template>
+
+<ng-template #moRaisedButtonLink let-item="item">
+  <a mat-raised-button matTooltip="{{item.label}}" matTooltipClass="mo-tooltip" color="{{item.color}}" [disabled]="item.disabled" class="{{item.classStyle}}">
+    <mat-icon *ngIf="item.icon>'' && item.positionIcon=='left'">{{item.icon}}</mat-icon>{{item.label}}<ng-content></ng-content>
+    <mat-icon *ngIf="item.icon>'' && item.positionIcon=='right'">{{item.icon}}</mat-icon>
+  </a>
+</ng-template>
+
+<ng-template #moStrokedButtonLink let-item="item">
+  <a mat-stroked-button matTooltip="{{item.label}}" matTooltipClass="mo-tooltip" color="{{item.color}}" [disabled]="item.disabled" class="{{item.classStyle}}">
+    <mat-icon *ngIf="item.icon>'' && item.positionIcon=='left'">{{item.icon}}</mat-icon>{{item.label}}<ng-content></ng-content>
+    <mat-icon *ngIf="item.icon>'' && item.positionIcon=='right'">{{item.icon}}</mat-icon>
+  </a>
+</ng-template>
+
+<ng-template #moFlatButtonLink let-item="item">
+  <a mat-flat-button matTooltip="{{item.titleText}}" matTooltipClass="mo-tooltip" color="{{item.color}}" [disabled]="item.disabled" class="{{item.classStyle}}">
+    <mat-icon *ngIf="item.icon>'' && item.positionIcon=='left'">{{item.icon}}</mat-icon>{{item.label}}<ng-content></ng-content>
+    <mat-icon *ngIf="item.icon>'' && item.positionIcon=='right'">{{item.icon}}</mat-icon>
+  </a>
+</ng-template>
+
+<ng-template #moIconButton let-item="item">
+  <button type="button" mat-icon-button (mouseover)="item.show=true" (mouseout)="show=false" matTooltip="{{item.titleText}}" matTooltipClass="mo-tooltip" color="{{item.color}}" [disabled]="item.disabled" class="{{item.classStyle}}">
+    <mat-icon *ngIf="item.icon>'' && item.positionIcon=='left'" class="{{item.classIcon}}">{{item.icon}}</mat-icon>{{item.label}}<ng-content></ng-content>
+    <div *ngIf="item.show && item.titleText == 'fullScreen_exit_text'" class="fakeTooltip" style="position:absolute;top:50px;padding:0px 6px;margin: 0px;left: -140px">{{item.titleText}}</div>
+    <mat-icon *ngIf="item.icon>'' && item.positionIcon=='right'">{{item.icon}}</mat-icon>
+  </button>
+</ng-template>
+
+<ng-template #moFab let-item="item">
+  <button type="button" mat-fab (mouseover)="item.show=true" matTooltip="{{item.titleText}}" matTooltipClass="mo-tooltip" (mouseout)="show=false" color="{{item.color}}" [disabled]="item.disabled" class="{{item.classStyle}}">
+    <mat-icon *ngIf="item.icon>'' && item.positionIcon=='left'">{{item.icon}}</mat-icon>{{item.label}}<ng-content></ng-content>
+    <mat-icon *ngIf="item.icon>'' && item.positionIcon=='right'">{{item.icon}}</mat-icon>
+  </button>
+</ng-template>
+
+<ng-template #moMiniFab let-item="item">
+  <button type="button" mat-mini-fab matTooltip="{{item.titleText}}" matTooltipClass="mo-tooltip" color="{{item.color}}" [disabled]="item.disabled" class="{{item.classStyle}}">
+    <mat-icon *ngIf="item.icon>'' && item.positionIcon=='left'" class="{{item.classIcon}}">{{item.icon}}</mat-icon>{{item.label}}<ng-content></ng-content>
+    <mat-icon *ngIf="item.icon>'' && item.positionIcon=='right'">{{item.icon}}</mat-icon>
+  </button>
+</ng-template>
+
+<ng-template #moButtonForm let-item="item">
+  <button type="button" mat-raised-button matTooltip="{{item.label}}" matTooltipClass="mo-tooltip" color="{{item.color}}" [disabled]="item.disabled" class="{{item.classStyle}}" style="border-radius: var(--mo-button-border-radius); font-size: 15px; font-weight: 400; padding-left: 12px; display: flex; align-items: center;">
+    <mat-icon *ngIf="item.icon>'' && item.positionIcon=='left'" style="height:23px;width:20px;font-size:20px;padding-right:6px">{{item.icon}}</mat-icon>{{item.label}}<ng-content></ng-content>
+    <mat-icon *ngIf="item.icon>'' && item.positionIcon=='right'">{{item.icon}}</mat-icon>
+  </button>
+</ng-template>
+
+<ng-container *ngIf="isInit" [ngTemplateOutlet]="getTemplate()" [ngTemplateOutletContext]="{item:this}"></ng-container>

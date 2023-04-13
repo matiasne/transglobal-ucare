@@ -1,0 +1,12 @@
+<div style=" width: 100%; display: flex; justify-content: center; padding-bottom: 50px;">
+  <mat-icon fontSet="material-icons-outlined">volume_up</mat-icon>
+</div>
+<div class="header1">¿Desea {{data.alarmaSonora?'activar':'desactivar'}} la alerta sonora?</div>
+<div class="header2">
+  En caso de emergencia, si detectó que el afiliado no está en condiciones
+  de responder el teléfono debido al accidente, se recomienda activarla.
+</div>
+<div class="footer1 f-center">
+  <gq-button type="stroked-button" label="Cancelar" (click)="onCancel()"></gq-button>
+  <gq-button type="button-form" label="{{data.alarmaSonora?'Activar':'Desactivar'}}" (click)="onAceptar()"></gq-button>
+</div>

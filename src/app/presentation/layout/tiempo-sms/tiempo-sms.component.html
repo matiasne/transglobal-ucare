@@ -1,0 +1,29 @@
+<gq-search-crud windowsTitle="Configuración de tiempos"
+                descripcion="Aquí podrás determinar los tiempos del sistema."
+                [showExport]="false"
+                [showImport]="false"
+                [showAdd]="false"
+                [showSearch]="false">
+  <form *ngIf="formEdit!==undefined" [formGroup]="formEdit">
+    <div class="panel">
+      <div>
+        <label><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">schedule</mat-icon> Tiempo de retraso de envío SMS</label>
+        <span>Tiempo de demora entre que el “Usuario monitor declara la emergencia” y la APP envía los SMS a los contactos de emergencia del usuario final.</span>
+        <gq-input formControlName="tiempoEnvioSMSSeconds" type="number" suffix="seg"></gq-input>
+        <label><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">schedule</mat-icon> Tiempo para entrar a pausa</label>
+        <span>Es el tiempo que el sistema brinda al usuario monitor cada vez que cierra una alerta para ponerse en condición de pausa.</span>
+        <gq-input formControlName="monitorPausaTimeOut" type="number" suffix="seg"></gq-input>
+        <label><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">schedule</mat-icon> Tiempo para confirmar la alerta</label>
+        <span>Tiempo que brinda el sistema al usuario monitor para que acepte una nueva alerta asignada.</span>
+        <gq-input formControlName="confirmarTimeOut" type="number" suffix="seg"></gq-input>
+        <label><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">schedule</mat-icon> Tiempo para reasignar la alerta</label>
+        <span>Es el tiempo en el que el sistema reasigna la alerta de un usuario monitor a otro en caso de falla técnica.</span>
+        <gq-input formControlName="tiempoParaReasignarAlerta" type="number" suffix="seg"></gq-input>
+        <div>
+          <gq-button icon="done" (click)="onSave()"></gq-button>
+          <gq-button icon="close" (click)="onCancel()"></gq-button>
+        </div>
+      </div>
+    </div>
+  </form>
+</gq-search-crud>

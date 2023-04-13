@@ -1,0 +1,40 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  min-width: 100%;
+  align-items: center;
+}
+
+.panel > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 600px;
+  min-width: 600px;
+  border: 2px solid #AAA;
+  padding: 8px;
+}
+
+.panel > div > label {
+  font-family: SF Pro Display;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: center;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.panel > div > div {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  flex-wrap: nowrap;
+}

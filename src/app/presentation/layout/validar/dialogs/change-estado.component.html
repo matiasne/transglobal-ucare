@@ -1,0 +1,9 @@
+<div class="header1">Cambiar estado {{data.usuarioNombre}}</div>
+<div class="header2">Aquí podrás cambiar el estado del afiliado</div>
+<form [formGroup]="formEdit" autocomplete="off">
+  <gq-input label="Estado" formControlName="estado" type="select" [data]="estados"></gq-input>
+</form>
+<div class="footer1 f-center">
+  <gq-button label="Cancelar" type="stroked-button" icon="close" (click)="onCancel()"></gq-button>
+  <gq-button label="Cambiar" icon="done" (click)="onCambiar()"></gq-button>
+</div>

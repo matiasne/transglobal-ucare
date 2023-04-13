@@ -1,0 +1,64 @@
+<gq-search-crud *ngIf="isModeSearch()"
+                [page]="page"
+                [showExport]="false"
+                [showImport]="false"
+                [showAdd]="false"
+                [showSearch]="false"
+                [columnDefs]="columnDefs"
+                (onItemClicked)="onGridRowClicked($event)"
+                (onClickAdd)="onAdd()"
+                (onClickSearch)="onClickSearch($event)"
+                (onSearch)="onSearch()"
+                windowsTitle="Mapa"
+                descripcion="Aquí podrás visualizar las ubicaciones de los reportes realizados, su estado e información."
+                addText="Agregar"
+                filterText="Filtrar Roles">
+  <form *ngIf="formSearch!==undefined" [formGroup]="formSearch" autocomplete="off" class="col-2">
+    <div class="W-100 search">
+      <span class="title">Búsqueda de reportes</span>
+      <gq-button icon="done" (click)="onSaveConfig()" label="Guardar Vista"></gq-button>
+      <gq-button icon="search" (click)="onSearch()" label="Buscar"></gq-button>
+    </div>
+    <gq-input label="Estado" formControlName="estado" type="select" [data]="estadosAlertasTodos"></gq-input>
+    <gq-input label="Desde" formControlName="desde" type="date"></gq-input>
+    <gq-input label="Hasta" formControlName="hasta" type="date"></gq-input>
+    <gq-input label="Desde" formControlName="desde_time" type="time"></gq-input>
+    <gq-input label="Hasta" formControlName="hasta_time" type="time"></gq-input>
+    <ngx-slider [(value)]="edadMin" [(highValue)]="edadMax" [options]="optionsSlider"></ngx-slider>
+    <gq-input label="Genero" formControlName="genero" type="select" [data]="generosTodos"></gq-input>
+  </form>
+  <ng-template [gq-content-search] let-item="item">
+    <div *ngIf="apiLoaded">
+      <google-map height="100%" width="100%" [options]="options" (mapInitialized)="onMapInitialized($event)" (centerChanged)="onChangeCenter()" (zoomChanged)="onChangeZoom()">
+        <map-marker #marker="mapMarker" *ngFor="let item of markerPositions; let i = index"
+                    [position]="item.position"
+                    [options]="item.option"
+                    (mapClick)="openInfoWindow(marker,item, i)">
+          <map-info-window>
+            <div class="info-content">
+              <div style="width:250px;">
+                <span *ngIf="item.data.estado==='S'" class="info-title">Nueva solicitud</span>
+                <span *ngIf="item.data.estado==='E'" class="info-title red">Emergencia</span>
+                <span *ngIf="item.data.estado==='U'" class="info-title yellow">Urgencia</span>
+                <span *ngIf="item.data.estado==='F'" class="info-title blue">Falsa Alarma</span>
+                <span><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">person</mat-icon>{{ item.data.afiliadoNombreCompleto }}</span>
+                <span><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">account_box</mat-icon>{{ item.data.afiliadoEdad}} años</span>
+                <span><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">transgender</mat-icon>{{getSexo(item.data.afiliadoSexo??'')}}</span>
+                <span><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">call</mat-icon>{{ item.data.afiliadoTelefonoContacto }}<mat-icon fontSet="material-icons-outlined" style="color: #8D99AE; margin-left: auto; cursor:pointer;" (click)="onCopyContent(item.data.afiliadoTelefonoContacto,$event)">content_copy</mat-icon></span>
+                <span><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">house</mat-icon>{{ item.data.afiliadoUbicacion }}</span>
+                <span><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">local_hospital</mat-icon><span>{{item.data.afiliadoNosocomio}}</span></span>
+                <span><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">schedule</mat-icon>Enviada : {{fecha(item.data.creado.modificado)}}</span>
+                <span><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">timer</mat-icon>Resuelta : {{fecha(item.data.modificacion.modificado)}}</span>
+              </div>
+              <div style="width:310px;">
+                <span><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">article</mat-icon>Bitácora</span>
+                <div [innerHtml]="item.data.bitacora"></div>
+              </div>
+            </div>
+          </map-info-window>
+        </map-marker>
+      </google-map>
+    </div>
+  </ng-template>
+</gq-search-crud>
+

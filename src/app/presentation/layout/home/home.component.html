@@ -1,0 +1,12 @@
+<div>
+  <h1><strong>Bienvenido/a : </strong> {{modelsService.user?.name??''}}</h1>
+  <br />
+  <br />
+  <h2>Códigos postales</h2>
+  <div *ngIf="codigosPostales!==undefined && codigosPostales!==null && codigosPostales.length>0">
+    <span *ngFor="let item of codigosPostales">{{item}}</span>
+  </div>
+  <h3 *ngIf="codigosPostales===undefined || codigosPostales===null || codigosPostales.length===0">
+    Todos los códigos postales
+  </h3>
+</div>

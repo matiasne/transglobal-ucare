@@ -1,0 +1,7 @@
+<div class="header1"><mat-icon fontSet="material-icons-outlined">{{data.icon}}</mat-icon> {{data.header1}}</div>
+<div class="header2">{{data.header2}}</div>
+<gq-grid [columnDefs]="columnDefs" [showLoadingOverlay]="showLoadingOverlay" [data]="datagrid" style="height:300px;"></gq-grid>
+<div class="footer1 f-center">
+  <gq-button label="Cerrar" type="stroked-button" (click)="onCancel()"></gq-button>
+  <gq-button label="{{data.buttonAction}}" (click)="onClickAction()"></gq-button>
+</div>

@@ -1,0 +1,74 @@
+<div class="content-alert">
+  <span>
+    Solicitudes ({{markerPositions.length}})
+  </span>
+  <div *ngFor="let item of asignados" class="item-alert" (click)="onClickAlertPanel(item)">
+    <div class="item-marker" [class]="{'red':item.estado=='E','yellow':item.estado=='U','blue':item.estado=='F','gray':item.estado=='S'}"></div>
+    <alerta-info [data]="item"></alerta-info>
+    <div *ngIf="!item.confirmaAsignacion"><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">notifications_active</mat-icon>{{item.countDownText}}</div>
+    <gq-button *ngIf="!item.confirmaAsignacion" style="margin-top:15px;" positionIcon="right" type="button-form" icon="done" style="width: calc(100% - 10px);" classStyle="w-100" (click)="onConfirmar(item)" [titleText]="'Confirmar'" [label]="'Confirmar'"></gq-button>
+    <!--<gq-input *ngIf="item.confirmaAsignacion && item.estado==='S'" [(ngModel)]="estado" [ngModelOptions]="{standalone: true}" class="select-button" style="width: calc(100% - 10px);" [label]="estado==''?'Seleccionar situación':''" type="select" [data]="estadosAlertas" (change)="onCambiarSituacion(item)"></gq-input>-->
+  </div>
+</div>
+<div *ngIf="apiLoaded">
+  <google-map height="100%" width="100%" [options]="options" (mapInitialized)="onMapInitialized($event)">
+    <map-marker #marker="mapMarker" *ngFor="let item of markerPositions; let i = index" style="min-width: 400px; max-width: 640px; width: 100%;"
+                [position]="item.position"
+                [options]="item.option"
+                (mapClick)="openInfoWindow(marker,item, i)">
+      <map-info-window>
+        <div class="info-content">
+          <div [ngClass]="{'content-2':item.data.estado==='E','content-1':item.data.estado!=='E'}">
+            <span *ngIf="item.data.estado==='S'" class="info-title">Nueva solicitud</span>
+            <span *ngIf="item.data.estado==='E'" class="info-title red">Emergencia</span>
+            <span *ngIf="item.data.estado==='U'" class="info-title yellow">Urgencia</span>
+            <span *ngIf="item.data.estado==='F'" class="info-title blue">Falsa Alarma</span>
+            <alerta-info [data]="item.data"></alerta-info>
+            <span>
+              <gq-button *ngIf="!item.data.confirmaAsignacion && item.data.monitorId===modelService?.user?.id " positionIcon="right" type="button-form" icon="done" style="width:100%;" classStyle="w-100" (click)="onConfirmar(item.data)" [titleText]="'Confirmar'" [label]="'Confirmar'"></gq-button>
+              <gq-input *ngIf="item.data.confirmaAsignacion && item.data.estado==='S'" [(ngModel)]="estado" [ngModelOptions]="{standalone: true}" class="select-button" style="width:100%;" [label]="estado==''?'Seleccionar situación':''" type="select" [data]="estadosAlertas" (change)="onCambiarSituacion(item.data)"></gq-input>
+              <gq-button *ngIf="item.data.confirmaAsignacion && item.data.estado!=='S' && item.data.cerrado!==true" positionIcon="right" type="button-form" icon="done" style="width:100%;" classStyle="w-100" (click)="onFinalizar(item.data)" [titleText]="'Finalizar asistencia'" [label]="'Finalizar asistencia'"></gq-button>
+            </span>
+          </div>
+          <div *ngIf="item.data.confirmaAsignacion && item.data.estado==='E' && item.data.moreInfo!=null" style="border-right:none;">
+            <div *ngIf="item.data.moreInfo?.contactos!=null && item.data.moreInfo.contactos.length>0">
+              <span><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">contact_phone</mat-icon>Contactos</span>
+              <span *ngFor="let contacto of item.data.moreInfo.contactos">
+                {{contacto.nombre}} {{contacto.telefono}}<mat-icon fontSet="material-icons-outlined" style="color: #8D99AE; margin-left: auto;" (click)="onCopyContent(contacto?.telefono??'',$event)">content_copy</mat-icon>
+              </span>
+            </div>
+            <div *ngIf="item.data.moreInfo?.patologias!=null && item.data.moreInfo.patologias.length>0">
+              <span><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">sick</mat-icon>Patologías</span>
+              <div>
+                <span *ngFor="let pato of item.data.moreInfo.patologias">{{pato}}</span>
+              </div>
+            </div>
+            <div *ngIf="item.data.moreInfo?.medicacion!=null && item.data.moreInfo.medicacion.length>0">
+              <span><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">medication</mat-icon>Medicación</span>
+              <div *ngFor="let pato of item.data.moreInfo.medicacion">{{pato}}</div>
+            </div>
+            <div *ngIf="item.data.moreInfo?.alergias!=null && item.data.moreInfo.alergias.length>0">
+              <span><mat-icon fontSet="material-icons-outlined" style="color:#8D99AE;">medication</mat-icon>Alergias</span>
+              <div *ngFor="let pato of item.data.moreInfo.alergias">{{pato}}</div>
+            </div>
+            <div style=" border-bottom:none;">
+              <mat-slide-toggle [(ngModel)]="item.data.alarmaSonora" (change)="onActivarAlarma(item.data)">Alerta sonora {{item.data.alarmaSonora?'Activada':'Desactivada'}}</mat-slide-toggle>
+            </div>
+          </div>
+        </div>
+      </map-info-window>
+    </map-marker>
+  </google-map>
+</div>
+
+<div class="overScreen" *ngIf="!isJoin">
+  <img src="assets/images/logo-w-xl.png" />
+  <span>Ya estas conectado para empezar a recibir las alertas.<br />Haga click en iniciar</span>
+  <gq-button icon="done" (click)="onJoin()" label="Iniciar"></gq-button>
+</div>
+
+<div class="overScreen" *ngIf="!connectionState">
+  <img src="assets/images/logo-w-xl.png" />
+  <span>Cargando...</span>
+</div>
+

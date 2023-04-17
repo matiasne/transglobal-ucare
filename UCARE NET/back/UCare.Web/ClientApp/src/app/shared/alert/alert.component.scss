@@ -1,0 +1,38 @@
+label {
+  font-family: var(--mo-text-font-family);
+}
+h2 {
+  margin-top: 0px;
+  margin-bottom: 15px;
+  color: var(--mo-text-font-family);
+  text-align: center;
+  color: var(--mo-general-text-color);
+}
+.mat-dialog-title {
+  margin: 20px auto 0px;
+  font-size: 76px;
+  height: 76px;
+  width: 76px;
+}
+.icon {
+  display:flex;
+  width: 81px;
+  height: 95px;
+  margin-left: auto;
+  margin-right: auto;
+  background-repeat: no-repeat
+}
+.questionIcon{
+    height: 80px;
+    padding-bottom:10px
+}
+
+button {
+  text-transform: uppercase;
+}
+@media screen and (max-width: 768px) {
+  .mo-alert .mat-dialog-container {
+    padding: 20px 12px;
+  }
+}
+

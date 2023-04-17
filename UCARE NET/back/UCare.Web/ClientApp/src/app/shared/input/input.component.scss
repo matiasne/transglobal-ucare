@@ -1,0 +1,22 @@
+:host {
+  position: relative;
+  display: block;
+  margin-top: 10px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.error {
+  color: var(--mo-alert-color) !important;
+}
+
+.asterisk_input::after {
+  content: " *";
+  color: var(--mo-state-inactive);
+}
+
+input[type=number]{
+    text-align:right;
+}

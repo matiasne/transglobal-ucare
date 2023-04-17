@@ -1,0 +1,23 @@
+<quill-editor #quillEditor [(ngModel)]="htmlstring"
+              format="html"
+              [disabled]="disabled"
+              [modules]="module"
+              [preserveWhitespace]="true"
+              [sanitize]="true"
+              (onContentChanged)="onContentChanged($event)">
+</quill-editor>
+<div *ngIf="showView=='code'">
+  <textarea [(ngModel)]="htmlstring" [disabled]="disabled" (change)="onContentChanged($event)"></textarea>
+  <div>
+    <mat-icon style="cursor:pointer;" (click)="onClickCode($event)" title="Editor">rate_review</mat-icon>
+    <mat-icon style="cursor:pointer;" (click)="onClickView($event)" title="View">web_asset</mat-icon>
+  </div>
+</div>
+<div *ngIf="showView=='view' || disabled">
+  <iframe [srcdoc]="getHtml() | safe" title="editor"></iframe>
+  <div>
+    <mat-icon style="cursor:pointer;" (click)="onClickCode($event)" title="editor">rate_review</mat-icon>
+    <mat-icon style="cursor:pointer;" (click)="onClickView($event)" title="code">code</mat-icon>
+  </div>
+</div>
+<mat-hint *ngIf="errorText!=null" class="mat-error error" style="font-size: 75%" [innerHTML]="errorText"></mat-hint>

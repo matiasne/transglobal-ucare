@@ -1,0 +1,36 @@
+<div class="search-crud-header header-open">
+  <span class="title">{{windowsTitle}}</span>
+  <span class="subtitle">{{descripcion}}</span>
+  <mo-search (onClickSearch)="_onClickSearch($event)"
+             (onClickExport)="onExport()"
+             (onClickImport)="onImport($event)"
+             (onClickAdd)="onAdd()"
+             (onClickOpenCloseFilter)="onOpenCloseFilter($event)"
+             [showAdd]="showAdd"
+             [showSearch]="showSearch"
+             [showExport]="showExport"
+             [showImport]="showImport"
+             [minCharactersToSearch]="minCharactersToSearch"
+             [addText]="addText"
+             [filterText]="filterText"
+             [MoAddButtonTemplate]="MoAddButtonTemplate">
+    <ng-content></ng-content>
+  </mo-search>
+</div>
+<ng-template *ngTemplateOutlet="gqContentSearchTemplate ?? contentDefault; context{item: this}">
+</ng-template>
+
+<ng-template #contentDefault let-item="item">
+  <div *ngIf="item.page!==undefined && item.page!==null" [ngClass]="{'search-crud-body-paging':showPaging,'search-crud-body-grid':!showPaging}">
+    <mat-paginator *ngIf="showPaging" [length]="item.page.recordCount"
+                   [pageSize]="20"
+                   [pageIndex]="item.page.pageIndex-1"
+                   [pageSizeOptions]="[20, 24, 96, 192]" (page)="item.onPage($event)">
+    </mat-paginator>
+    <gq-grid *ngIf="item.page.data !==null && item.columnDefs!==undefined" [data]="item.page.data"
+             [columnDefs]="item.columnDefs"
+             [showLoadingOverlay]="item.showLoadingOverlay"
+             (onSortChanged)="item._onSortChanged($event)"
+             (onRowClicked)="item._onRowClicked($event)"></gq-grid>
+  </div>
+</ng-template>

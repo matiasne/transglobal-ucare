@@ -1,0 +1,8 @@
+<img src="{{getIcon()}}" [class]="{'questionIcon': data.type =='question'}" class="icon" alt="icono"/>
+<h2 *ngIf="data.titulo != null">{{data.titulo}}</h2>
+<label mat-dialog-content class="textoGral text-center">{{data.label}}</label>
+<div mat-dialog-actions class="flex-container-horizontal" style="justify-content:center" >
+  <button mat-button [mat-dialog-close]="false" *ngIf="data.type == 'warning' || data.type == 'question'" [ngStyle]="{'order': data.type == 'question' ? 2:0}" [style.color]="getColor()" style="font-size: 16px;font-weight: 700;Letter-spacing: 0.79px">{{ data.buttonDeleteLabel}}</button>
+  <button mat-button [mat-dialog-close]="true" [style.color]="getColor()" style="font-size: 16px; font-weight: 700;Letter-spacing: 0.79px;order: 1" >{{ data.buttonAceptLabel}}</button>
+</div>
+

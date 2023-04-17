@@ -1,0 +1,39 @@
+<gq-search-crud *ngIf="isModeSearch()"
+                [page]="page"
+                [columnDefs]="columnDefs"
+                (onItemClicked)="onGridRowClicked($event)"
+                (onClickAdd)="onAdd()"
+                (onClickSearch)="onClickSearch($event)"
+                (onSearch)="onSearch()"
+                (onSortChanged)="onSortChanged($event)"
+                windowsTitle="{{ modelService?.user?.rol==='P'?'Roles administrativos':modelService?.user?.rol==='G'?'Roles administrativos':'Roles operativos'}}"
+                descripcion="{{modelService?.user?.rol==='P'?'Aquí podrás administrar y asignar los roles gerentes en el sistema.':modelService?.user?.rol==='G'?'Aquí podrás administrar y asignar los roles administradores en el sistema.':'Aquí podrás administrar y asignar los roles verificadores y monitores en el sistema.'}}"
+                addText="Agregar"
+                filterText="Filtrar Roles">
+  <form *ngIf="formSearch!==undefined" [formGroup]="formSearch" autocomplete="off">
+    <gq-input label="Estado" formControlName="estado" type="select" [data]="estadosTodos"></gq-input>
+    <gq-input label="Subordinados" formControlName="subordinados" type="select" [data]="subordinadosTodos"></gq-input>
+  </form>
+</gq-search-crud>
+
+<gq-editpanel *ngIf="isModeEdit() || isModeAdd()" (onClickCancel)="onCancelButton()" (onClickSave)="onSave()" (onClickEdit)="onHabilitateEdit()"
+              [showSave]="(modelService?.user?.id === item?.usuarioId || item?.usuarioId===undefined || item?.usuarioId===null|| item?.usuarioId==='')"
+              [notShowEditAndSave]="true" [showReturn]="!(modelService?.user?.id === item?.usuarioId || item?.usuarioId!==undefined || item?.usuarioId!==null || item?.usuarioId!=='')" (onClickReturn)="onCancelAfter(false)">
+  <form *ngIf="formEdit!==undefined" [formGroup]="formEdit" class="form-cols form-2-cols" autocomplete="off">
+    <gq-input label="Nombre" formControlName="usuarioNombre" [errorText]="onError('nombre')"></gq-input>
+    <gq-input label="E-Mail" formControlName="email" [errorText]="onError('email')"></gq-input>
+    <gq-input label="Contraseña" formControlName="password" type="password" [errorText]="onError('password')"></gq-input>
+    <gq-input label="Rol" *ngIf="modelService?.user?.rol==='A'" formControlName="rol" type="select" [data]="rolesAdmin" [errorText]="onError('rol')"></gq-input>
+    <gq-input label="Estado" formControlName="estado" type="select" [data]="estados" [errorText]="onError('estado')"></gq-input>
+    <gq-input *ngIf="codigosPostales===undefined || codigosPostales===null || codigosPostales.length===0" label="Código postal" [(ngModel)]="codigoPostal" [ngModelOptions]="{standalone: true}" icon="add" (clickIcon)="onAddCodePostal()"></gq-input>
+    <div *ngIf="codigosPostales!==undefined && codigosPostales!==null && codigosPostales.length!=0">
+      <gq-button type="mini-fab" icon="check_box_outline_blank" style="float:right;margin:5px;" (click)="onUnSelectAll()" [color]="'warn'" titleText='Deseleccionar todo'></gq-button>
+      <gq-button type="mini-fab" icon="check_box" style="float:right;margin:5px;" (click)="onSelectAll()" [color]="'warn'" titleText='Seleccionar todo'></gq-button>
+    </div>
+    <div></div>
+    <gq-grid class="w-100" style="height:300px;"
+             [columnDefs]="codePostalColumnDefs"
+             [data]="codigosPostalesEdicion"
+             (onRowClicked)="onCodePostalClicked($event)"></gq-grid>
+  </form>
+</gq-editpanel>

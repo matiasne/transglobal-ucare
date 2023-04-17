@@ -1,0 +1,29 @@
+<div class="layout" [class]="{open_menu:openMenu}">
+
+  <mat-toolbar class="header" color="primary">
+    <button mat-icon-button class="example-icon" (click)="onOpenCloseMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <img src="assets/images/logo-w.png" alt="logo" />
+    <span class="example-spacer"></span>
+    <img src="assets/images/icons/user.png" class="m-r" />
+    <span>{{modelsService.user?.name??''}}</span>
+  </mat-toolbar>
+  <div class="menu">
+    <ul class="menu-vertical">
+      <li *ngIf="modelsService.user?.rol === 'P' || modelsService.user?.rol === 'G' || modelsService.user?.rol === 'A'"><div (click)="onOpenRoute(LAYOUT_ROLES)">Roles</div></li>
+      <li *ngIf="modelsService.user?.rol === 'P'"><div (click)="onOpenRoute(LAYOUT_USUARIOS)">Usuarios</div></li>
+      <!--<li *ngIf="modelsService.user?.rol === 'G'"><div (click)="onOpenRoute(LAYOUT_TEMPO_SMS)">Configuración de Tiempos</div></li>-->
+      <li *ngIf="modelsService.user?.rol === 'A'"><div (click)="onOpenRoute(LAYOUT_ESTADOS)">Historial</div></li>
+      <li *ngIf="modelsService.user?.rol === 'A'"><div (click)="onOpenRoute(LAYOUT_MAPA)">Mapa</div></li>
+      <!--<li *ngIf="modelsService.user?.rol === 'A'"><div (click)="onOpenRoute(LAYOUT_MAPA_CONFIG)">Mapa Config</div></li>-->
+      <li *ngIf="modelsService.user?.rol === 'A'"><div (click)="onOpenRoute(LAYOUT_COMUNICACION)">Comunicaciones</div></li>
+      <li *ngIf="modelsService.user?.rol === 'V'"><div (click)="onOpenRoute(LAYOUT_AFILIADO,true)">Afiliados</div></li>
+      <li *ngIf="modelsService.user?.rol === 'M'"><div (click)="onOpenRoute(LAYOUT_MONITOREO,true)">Monitoreo</div></li>
+      <li><div (click)="onSalir()">Salir</div></li>
+    </ul>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

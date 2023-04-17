@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "stellar-river-359012",
+  "private_key_id": "63890bed5462bffc46131255d2d616d50cba2427",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCXsDTBIKjyYOBL\nuBajc2fKhNCNodUPdWftMhOkE8etgyP25eAHVnjjNPYHFWJNJ399PWsSacH7xx21\nwMvJ4H8S7zdk7691Sm9CObMhxFYWHXyg7xZs2/YVu3qCWSahzQ2u8qaxXweQtBHp\nHEiSUoly6d/U1+xtMuRCGmP4VStrjp+jnae3GQdee+OkNRwClvKjHvcme9StCL7A\n1ger1TadaGHc3X/OZLdm+8BrdxTNOYFje2GxbPKP0OOeMmcKl8QVM2Ggu++e4dEI\nGLHluopn10Pm9Le9TmfFy2aRHA3IDDAnd2ahKV5pE9Vml+Y1l5tG4eVPAd58MjgH\nmipsefZnAgMBAAECggEACPtixE9+HDa8UVTUklfSZ4g3HovcpTkF2bfDY03V3w0K\n43h31uIPRR+XtJJW6yFRnUWLwjVc9TRfKqoAkd2nPfnIRUPOwe/nEqbUApsw9ced\nNPJeA5LVdDKmbcgq+h29l68VS8odapDJwWHusitiVC72arthFpOS4eR/fZmdeUA2\nDjBYBcj+pZshpdWEP9Q9IugPRmVlbNAbfSbZku/rry6XeY3TV8/6t1hg93gEmigd\nlkpqGFR0UrFZHyXmUuohoQ/+AHIkl4O6c9FghgRS4mqOQZo4trQOgo2pmsCRp22Q\n+P4BF68IuMqGt2eRF3H+BOAFB0vhhEM2q11I4CseAQKBgQDP274+Uft4Vtxt8d4B\nfAdDu0PlWGlVszgGaQ1NkDyhPa1qIfVGK5UdVxxVn2TJ/YJOfU9VH5xQk/b/LMgV\nx3+wtx4F2e9FBPou8wZOb1/Kt2kuS66/7mopGf1GPhmI7fbJNASzvs+jTnhyvgo/\nrZPVRpolVzgLBjtY+gqrsrolgQKBgQC60gym3mK1bXK9GSxwU8cToRpjDCt82d+n\nJvIE4riPGadxGgkEnx4RpAI6THfg2u1D+uLMk1FnPZO277Lfhf/lPjlOjdZnu3B/\nPLU4GGdxcjyyKQd0Ey8EOicg9OJMvDrB8zUqvyjBfgxmLmfiUc4y4Q2HR9BH/rCe\nrIvquref5wKBgBF1suBHQKlWGoP9uhlD0tRkqYpdR9PUDxOyxVRLllww8x0kJxcy\n1/6z74RdtDinW8e+DOjok9fM5gV/PHtf26D7cMErEkco6N8CuPfjsRc1Gtexsccb\nfr1fGoBI/RocawtxnCeBEq30DHgO8ItyyCU1HgOe9O0wI9IQhs7vX2WBAoGAZB88\nfpXCiv8sNeHu6ghMMd3uWVTlXZUaguehXzLuvGqATWIpoRtxrvyZ4QqoWI6cCAnG\nUONHBjB/INSXpamX+hD9/3aOiKtw4A/2Ayk5DxitJMJOZ0v8r6RG4ie7vGpIhzdD\nsDQgsIpQNNb7/9Pd0XDBolW/b0Y0++T3W4ZT8NMCgYBbXIQ0E5h5DKcFSIzbW80N\nr5SZTXKyGly48oOXBpafvs63pFR6FPsKpZrEfnVClCClOb6an7ndLNAL6dVTqqzr\n77DKQd4nIL1x5RQ/L+cmj0yyRS1OGenppSRmdECFEkkWTh2sSoIP6xBk55aFGssd\n8c9cM51CibSsSEDjUt9cQg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-j6y7x@stellar-river-359012.iam.gserviceaccount.com",
+  "client_id": "111683793376541592529",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-j6y7x%40stellar-river-359012.iam.gserviceaccount.com"
+}

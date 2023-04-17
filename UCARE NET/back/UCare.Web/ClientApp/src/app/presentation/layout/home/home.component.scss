@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+:host > div > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+:host > div > div > span {
+  padding: 5px;
+}

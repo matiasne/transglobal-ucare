@@ -1,0 +1,73 @@
+kt7S9rpL84g66WVbRG
+
+PSCP -pw kt7S9rpL84g66WVbRG -P 22222 -scp -r -C .nuget root@186.64.123.144:/code/.nuget
+PSCP -pw kt7S9rpL84g66WVbRG -P 22222 -scp -r -C UCare.Application root@186.64.123.144:/code
+PSCP -pw kt7S9rpL84g66WVbRG -P 22222 -scp -r -C UCare.Comunication.Service root@186.64.123.144:/code
+PSCP -pw kt7S9rpL84g66WVbRG -P 22222 -scp -r -C UCare.Domain root@186.64.123.144:/code
+PSCP -pw kt7S9rpL84g66WVbRG -P 22222 -scp -r -C UCare.Infrastructure.AlertService root@186.64.123.144:/code
+PSCP -pw kt7S9rpL84g66WVbRG -P 22222 -scp -r -C UCare.Infrastructure.Firebase root@186.64.123.144:/code
+PSCP -pw kt7S9rpL84g66WVbRG -P 22222 -scp -r -C UCare.Infrastructure.GoogleApi root@186.64.123.144:/code
+PSCP -pw kt7S9rpL84g66WVbRG -P 22222 -scp -r -C UCare.Infrastructure.SendinBlue root@186.64.123.144:/code
+PSCP -pw kt7S9rpL84g66WVbRG -P 22222 -scp -r -C UCare.Infrastructure.SMS.Twilio root@186.64.123.144:/code
+PSCP -pw kt7S9rpL84g66WVbRG -P 22222 -scp -r -C UCare.Shared root@186.64.123.144:/code
+PSCP -pw kt7S9rpL84g66WVbRG -P 22222 -scp -r -C UCare.Web root@186.64.123.144:/code
+PSCP -pw kt7S9rpL84g66WVbRG -P 22222 -scp -r -C data root@186.64.123.144:/code
+PSCP -pw kt7S9rpL84g66WVbRG -P 22222 -scp -r -C docker-compose.yml root@186.64.123.144:/code
+PSCP -pw kt7S9rpL84g66WVbRG -P 22222 -scp -r -C init-letsencrypt.sh root@186.64.123.144:/code
+PSCP -pw kt7S9rpL84g66WVbRG -P 22222 -scp -r -C UCare.Web\appsettings.production.json root@186.64.123.144:/code/UCare.Web/appsettings.json
+PSCP -pw kt7S9rpL84g66WVbRG -P 22222 -scp -r -C UCare.Web\firebase.production.json root@186.64.123.144:/code/UCare.Web/firebase.json
+PSCP -pw kt7S9rpL84g66WVbRG -P 22222 -scp -r -C UCare.Web\Dockerfile root@186.64.123.144:/code/UCare.Web/Dockerfile
+PSCP -pw kt7S9rpL84g66WVbRG -P 22222 -scp -r -C docker-compose.yml root@186.64.123.144:/code/docker-compose.yml
+PSCP -pw kt7S9rpL84g66WVbRG -P 22222 -scp -r -C data\nginx\app.conf root@186.64.123.144:/code/data/nginx/app.conf
+
+SCP -rCP 22222 .nuget root@186.64.123.144:/code/.nuget 
+SCP -rCP 22222 UCare.Application root@186.64.123.144:/code
+SCP -rCP 22222 UCare.Comunication.Service root@186.64.123.144:/code
+SCP -rCP 22222 UCare.Domain root@186.64.123.144:/code
+SCP -rCP 22222 UCare.Infrastructure.AlertService root@186.64.123.144:/code
+SCP -rCP 22222 UCare.Infrastructure.Firebase root@186.64.123.144:/code
+SCP -rCP 22222 UCare.Infrastructure.GoogleApi root@186.64.123.144:/code
+SCP -rCP 22222 UCare.Infrastructure.SendinBlue root@186.64.123.144:/code
+SCP -rCP 22222 UCare.Infrastructure.SMS.Twilio root@186.64.123.144:/code
+SCP -rCP 22222 UCare.Shared root@186.64.123.144:/code
+SCP -rCP 22222 UCare.Web root@186.64.123.144:/code
+SCP -rCP 22222 data root@186.64.123.144:/code
+SCP -rCP 22222 docker-compose.yml root@186.64.123.144:/code
+SCP -rCP 22222 init-letsencrypt.sh root@186.64.123.144:/code
+SCP -rCP 22222 UCare.Web\appsettings.production.json root@186.64.123.144:/code/UCare.Web/appsettings.json
+SCP -rCP 22222 UCare.Web\firebase.production.json root@186.64.123.144:/code/UCare.Web/firebase.json
+
+Entrar al server 
+putty.exe -ssh root@186.64.123.144 22222 -pw kt7S9rpL84g66WVbRG
+
+Entrar al server 
+ssh root@186.64.123.144 -p 22222 
+
+cd /code
+cp /code/UCare.Web/appsettings.production.json UCare.Web/appsettings.json
+cp /code/UCare.Web/firebase.production.json UCare.Web/firebase.json 
+
+Listamos los contenedores
+docker container list
+
+Para el contenedor
+docker container stop <container_id>
+
+Ejecutar
+docker run -d -p 80:80 --restart always ucare
+docker run -d -e ASPNETCORE_URLS='https://+:443;http://+:80' -p 80:80 -p 443:443 --restart always ucare
+
+Entrar a Docker container
+docker exec -it <contenedor> /bin/bash	
+
+https://pentacent.medium.com/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71
+
+renovar certificado de letsencrypt
+./init-letsencrypt.sh
+export VERSION_APP=1.0.00.35
+### docker-compose build --no-cache --build-arg VERSION_APP=1.0.00.35 ucare.web
+
+Compilar
+docker-compose stop 
+docker-compose build --no-cache 
+docker-compose up -d

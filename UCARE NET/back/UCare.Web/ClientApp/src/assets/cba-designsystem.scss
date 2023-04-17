@@ -1,0 +1,738 @@
+@import "~@angular/material/theming";
+@import "./cba-icons-fonts.scss";
+
+@include mat-core();
+
+// $mat-custom: (
+//   50: #e1e6eb,
+//   100: #b5c2cc,
+//   200: #8399ab,
+//   300: #517089,
+//   400: #2c516f,
+//   500: #073256,
+//   600: #062d4f,
+//   700: #052645,
+//   800: #041f3c,
+//   900: #02132b,
+//   A100: #6595ff,
+//   A200: #1c7cd5,
+//   A400: #004ffe,
+//   A700: #0047e5,
+//   contrast: (
+//     50: $dark-primary-text,
+//     100: $dark-primary-text,
+//     200: $dark-primary-text,
+//     300: $dark-primary-text,
+//     400: $dark-primary-text,
+//     500: $light-primary-text,
+//     600: $light-primary-text,
+//     700: $light-primary-text,
+//     800: $light-primary-text,
+//     900: $light-primary-text,
+//     A100: $dark-primary-text,
+//     A200: $light-primary-text,
+//     A400: $light-primary-text,
+//     A700: $light-primary-text
+//   )
+// );
+
+$cba-blue: (
+  50: #e4effa,
+  100: #bbd8f2,
+  200: #8ebeea,
+  300: #60a3e2,
+  400: #3e90db,
+  500: #1c7cd5,
+  600: #1974d0,
+  700: #1469ca,
+  800: #115fc4,
+  900: #094cba,
+  A100: #e5eeff,
+  A200: #b3ccff,
+  A400: #80a9ff,
+  A700: #6698ff,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text
+  )
+);
+
+$cba-accent: (
+  50: #ebf6eb,
+  100: #ceeace,
+  200: #aedcae,
+  300: #8dcd8d,
+  400: #74c374,
+  500: #5cb85c,
+  600: #54b154,
+  700: #4aa84a,
+  800: #41a041,
+  900: #309130,
+  A100: #d9ffd9,
+  A200: #a6ffa6,
+  A400: #73ff73,
+  A700: #59ff59,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text
+  )
+);
+
+$cba-warn: (
+  50: #faeaea,
+  100: #f4cbca,
+  200: #eca9a7,
+  300: #e48784,
+  400: #df6d69,
+  500: #d9534f,
+  600: #d54c48,
+  700: #cf423f,
+  800: #ca3936,
+  900: #c02926,
+  A100: #fffdfd,
+  A200: #ffcbca,
+  A400: #ff9997,
+  A700: #ff807e,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text
+  )
+);
+
+// $mat-pink: (
+//   50: #fce4ec,
+//   100: #f8bbd0,
+//   200: #f48fb1,
+//   300: #f06292,
+//   400: #ec407a,
+//   500: #e91e63,
+//   600: #d81b60,
+//   700: #c2185b,
+//   800: #ad1457,
+//   900: #880e4f,
+//   A100: #f72828,
+//   A200: #ff4040,
+//   A400: #f50057,
+//   A700: #c51162,
+//   contrast: (
+//     50: $dark-primary-text,
+//     100: $dark-primary-text,
+//     200: $dark-primary-text,
+//     300: $dark-primary-text,
+//     400: $dark-primary-text,
+//     500: $light-primary-text,
+//     600: $light-primary-text,
+//     700: $light-primary-text,
+//     800: $light-primary-text,
+//     900: $light-primary-text,
+//     A100: $dark-primary-text,
+//     A200: $light-primary-text,
+//     A400: $light-primary-text,
+//     A700: $light-primary-text
+//   )
+// );
+
+// $mat-red: (
+//   50: #faeaea,
+//   100: #f4cbca,
+//   200: #eca9a7,
+//   300: #e48784,
+//   400: #df6d69,
+//   500: #d9534f,
+//   600: #d54c48,
+//   700: #cf423f,
+//   800: #ca3936,
+//   900: #c02926,
+//   A100: #fffdfd,
+//   A200: #ffcbca,
+//   A400: #ff9997,
+//   A700: #ff807e,
+//   contrast: (
+//     50: $dark-primary-text,
+//     100: $dark-primary-text,
+//     200: $dark-primary-text,
+//     300: $dark-primary-text,
+//     400: $dark-primary-text,
+//     500: $light-primary-text,
+//     600: $light-primary-text,
+//     700: $light-primary-text,
+//     800: $light-primary-text,
+//     900: $light-primary-text,
+//     A100: $dark-primary-text,
+//     A200: $light-primary-text,
+//     A400: $light-primary-text,
+//     A700: $light-primary-text
+//   )
+// );
+
+$primary: mat-palette($cba-blue, 500, A100, A400);
+$accent: mat-palette($cba-accent, 500, A100, A400);
+$warn: mat-palette($cba-warn, 500, A100, A400);
+
+$theme: mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);
+
+// .alternate-theme {
+//   $alternate-primary: mat-palette($mat-light-blue);
+//   $alternate-accent: mat-palette($mat-yellow, 400);
+
+//   $alternate-theme: mat-light-theme($alternate-primary, $alternate-accent);
+
+//   @include angular-material-theme($alternate-theme);
+// }
+
+// Typography
+
+@mixin mat-base-typography($config, $selector: ".mat-typography") {
+  .mat-h1,
+  .mat-headline,
+  #{$selector} h1 {
+    @include mat-typography-level-to-styles($config, headline);
+    margin: 0 0 16px;
+  }
+
+  .mat-h2,
+  .mat-title,
+  #{$selector} h2 {
+    @include mat-typography-level-to-styles($config, title);
+    margin: 0 0 16px;
+  }
+
+  .mat-h3,
+  .mat-subheading-2,
+  #{$selector} h3 {
+    @include mat-typography-level-to-styles($config, subheading-2);
+    margin: 0 0 16px;
+  }
+
+  .mat-h4,
+  .mat-subheading-1,
+  #{$selector} h4 {
+    @include mat-typography-level-to-styles($config, subheading-1);
+    margin: 0 0 16px;
+  }
+
+  // Note: the spec doesn't have anything that would correspond to h5 and h6, but we add these for
+  // consistency. The font sizes come from the Chrome user agent styles which have h5 at 0.83em
+  // and h6 at 0.67em.
+  .mat-h5,
+  #{$selector} h5 {
+    @include mat-typography-font-shorthand(
+      mat-font-size($config, body-1) * 0.83,
+      mat-font-weight($config, body-1),
+      mat-line-height($config, body-1),
+      mat-font-family($config, body-1)
+    );
+
+    margin: 0 0 12px;
+  }
+
+  .mat-h6,
+  #{$selector} h6 {
+    @include mat-typography-font-shorthand(
+      mat-font-size($config, body-1) * 0.67,
+      mat-font-weight($config, body-1),
+      mat-line-height($config, body-1),
+      mat-font-family($config, body-1)
+    );
+
+    margin: 0 0 12px;
+  }
+
+  .mat-body-strong,
+  .mat-body-2 {
+    @include mat-typography-level-to-styles($config, body-2);
+  }
+
+  .mat-body,
+  .mat-body-1,
+  #{$selector} {
+    @include mat-typography-level-to-styles($config, body-1);
+
+    p {
+      margin: 0 0 12px;
+    }
+  }
+
+  .mat-small,
+  .mat-caption {
+    @include mat-typography-level-to-styles($config, caption);
+  }
+
+  // Note: The spec doesn't mention letter spacing. The value comes from
+  // eyeballing it until it looked exactly like the spec examples.
+  .mat-display-4,
+  #{$selector} .mat-display-4 {
+    @include mat-typography-level-to-styles($config, display-4);
+    margin: 0 0 56px;
+    letter-spacing: -0.05em;
+  }
+
+  .mat-display-3,
+  #{$selector} .mat-display-3 {
+    @include mat-typography-level-to-styles($config, display-3);
+    margin: 0 0 64px;
+    letter-spacing: -0.02em;
+  }
+
+  .mat-display-2,
+  #{$selector} .mat-display-2 {
+    @include mat-typography-level-to-styles($config, display-2);
+    margin: 0 0 64px;
+    letter-spacing: -0.005em;
+  }
+
+  .mat-display-1,
+  #{$selector} .mat-display-1 {
+    @include mat-typography-level-to-styles($config, display-1);
+    margin: 0 0 64px;
+  }
+}
+
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+$custom-typography: mat-typography-config(
+  $font-family: "Roboto, sans-serif",
+  $display-4: mat-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
+  $display-3: mat-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
+  $display-2: mat-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),
+  $display-1: mat-typography-level(34px, 40px, 100),
+  $headline: mat-typography-level(24px, 28px, 900),
+  $title: mat-typography-level(20px, 24px, 900),
+  $subheading-2: mat-typography-level(16px, 20px, 300),
+  $subheading-1: mat-typography-level(16px, 19px, 700),
+  $body-2: mat-typography-level(12px, 14px, 300),
+  $body-1: mat-typography-level(14px, 16px, 300),
+  $caption: mat-typography-level(12px, 14px, 300),
+  $button: mat-typography-level(12px, 14px, 300),
+  $input: mat-typography-level(inherit, 1.125, 400)
+);
+
+// Override typography CSS classes (e.g., mat-h1, mat-display-1, mat-typography, etc.).
+@include mat-base-typography($custom-typography);
+
+// Override typography for a specific Angular Material components.
+@include mat-checkbox-typography($custom-typography);
+
+// Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($custom-typography);
+
+// Override the typography in the core CSS.
+@include mat-core($custom-typography);
+
+// CUSTOM CLASSES START
+
+mat-form-field.mat-form-field {
+  font-size: 14px;
+}
+
+.mat-form-field-infix {
+  border-top: 0.3rem solid transparent !important;
+}
+
+.mat-raised-button,
+.btn-gob {
+  //padding: 1px 30px !important;
+  border-radius: 0px !important;
+
+  &.rounded {
+    border-radius: 25px !important;
+  }
+
+  &.round {
+    border-radius: 8px !important;
+  }
+}
+
+.mat-success {
+  color: #fff !important;
+  background-color: #ee9800 !important;
+}
+
+.btn-primary {
+  padding: 1px 30px !important;
+}
+
+.btn-primary:not([disabled]) {
+  box-shadow: 0px 5px 10px rgba(0, 81, 156, 0.2) !important;
+}
+
+.btn-flat-primary {
+  border-color: #1c7cd5 !important;
+  color: #1c7cd5;
+  padding: 1px 30px !important;
+}
+
+.btn-flat-warn {
+  border-color: #d9534f !important;
+  color: #d9534f;
+  padding: 1px 30px !important;
+}
+
+.btn-flat-accent {
+  border-color: #5cb85c !important;
+  color: #5cb85c;
+  padding: 1px 30px !important;
+}
+
+// CUSTOM CLASS COLORS START //
+
+// COLORS
+
+.CBA_DarkBlue {
+  color: #073256;
+}
+.CBA_Blue {
+  color: #00519c;
+}
+.CBA_lightBlue {
+  color: #53aae0;
+}
+.CBA_Green {
+  color: #5cb85c;
+}
+.CBA_Orange {
+  color: #f0ad4e;
+}
+.CBA_DarkOrange {
+  color: #d38037;
+}
+.CBA_Grey1 {
+  color: #29343e;
+}
+.CBA_Grey2 {
+  color: #5c6f82;
+}
+.CBA_Grey3 {
+  color: #899dac;
+}
+.CBA_Grey4 {
+  color: #dbe5e9;
+}
+.CBA_Grey5 {
+  color: #edf0f5;
+}
+.CBA_Grey6 {
+  color: #f7fbfd;
+}
+.CBA_Error {
+  color: #d9534f;
+}
+.CBA_Info {
+  color: #1c7cd5;
+}
+.CBA_Correct {
+  color: #5cb85c;
+}
+.CBA_Alert {
+  color: #ee9800;
+}
+// SHADOWS
+
+.cba-shadow-1 {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+}
+.cba-shadow-2 {
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
+}
+.cba-shadow-3 {
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.16);
+}
+.cba-shadow-4 {
+  box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.16);
+}
+
+// Form label top
+
+.label-form {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #2090eb;
+  letter-spacing: 1.1px;
+  margin: 0px 0px 5px 0px;
+}
+
+// Mat Slide
+// mat-slide-toggle {
+//   .mat-slide-toggle-bar {
+//     width: 45px !important;
+//     height: 20px !important;
+//     .mat-slide-toggle-thumb-container {
+//       top: 0px !important;
+//       left: -3px !important;
+//       transition: all 0.2s linear !important;
+//     }
+//   }
+//   &.mat-checked {
+//     .mat-slide-toggle-thumb-container {
+//       transform: translate3d(28px, 0, 0) !important;
+//     }
+//   }
+// }
+
+// Mat Checkbox
+
+mat-checkbox {
+  opacity: 0.6;
+  .mat-checkbox-label {
+    line-height: 16px !important;
+    color: #7c7c7c !important;
+  }
+  &:hover {
+    opacity: 1;
+  }
+  &.mat-checkbox-checked {
+    opacity: 1;
+  }
+}
+
+// Mat Progress Spinner
+.mat-progress-spinner-percentage {
+  position: relative;
+  display: inline-block;
+  span.indicator {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 22px;
+    font-weight: 700;
+    color: #636363;
+  }
+}
+mat-spinner,
+mat-progress-spinner {
+  svg {
+    circle {
+      stroke-width: 8% !important;
+    }
+  }
+}
+
+mat-progress-bar {
+  height: 6px !important;
+}
+
+// Mat Dialog Close Button
+.mat-dialog-container {
+  position: relative;
+  padding: 10px !important;
+  .dialog {
+    padding: 35px 100px;
+    @media (max-width: 600px) {
+      padding: 15px 30px;
+    }
+    .close-dialog {
+      background: transparent !important;
+      position: absolute;
+      outline: none;
+      border: none;
+      top: 15px;
+      right: 15px;
+      cursor: pointer;
+      padding: 0px;
+
+      &:hover,
+      &:focus,
+      &:active,
+      &:visited {
+        background: transparent !important;
+        color: black;
+        outline: none;
+        border: none;
+      }
+    }
+    .dialog-alert {
+      &.center {
+        text-align: center;
+      }
+    }
+    h3 {
+      font-size: 18px;
+      line-height: 25px;
+      color: #1b1c20;
+      margin-top: 10px;
+    }
+    p {
+      font-size: 14px;
+      line-height: 13px;
+      color: #354052;
+    }
+    .dialog-buttons {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
+}
+
+// Shadow
+
+mat-form-field {
+  .mat-form-field-outline {
+    transition: all 0.2s ease-in-out !important;
+  }
+  &.mat-focused {
+    .mat-form-field-outline {
+      box-shadow: 0 16px 30px 0 rgba(0, 0, 0, 0.21) !important;
+      transition: all 0.2s ease-in-out !important;
+    }
+  }
+}
+
+.mat-select-panel {
+  box-shadow: 0 16px 30px 0 rgba(0, 0, 0, 0.21) !important;
+}
+
+/* NEW FILE */
+
+// Mat Button Theme
+
+@mixin _mat-button-theme-property($theme, $property, $hue) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  &.mat-primary {
+    #{$property}: mat-color($primary, $hue);
+  }
+  &.mat-accent {
+    #{$property}: mat-color($accent, $hue);
+  }
+  &.mat-warn {
+    #{$property}: mat-color($warn, $hue);
+  }
+
+  &.mat-primary,
+  &.mat-accent,
+  &.mat-warn,
+  &[disabled] {
+    &[disabled] {
+      $palette: if($property == "color", $foreground, $background);
+      #{$property}: mat-color($palette, disabled-button);
+    }
+  }
+}
+
+@mixin mat-button-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .mat-button,
+  .mat-icon-button,
+  .mat-stroked-button {
+    // Buttons without a background color should inherit the font color. This is necessary to
+    // ensure that the button is readable on custom background colors. It's wrong to always assume
+    // that those buttons are always placed inside of containers with the default background
+    // color of the theme (e.g. themed toolbars).
+    color: inherit;
+    background: transparent;
+
+    @include _mat-button-theme-property($theme, "color", default);
+    @include _mat-button-focus-overlay-color($theme);
+
+    // Setup the ripple color to be based on the text color. This ensures that the ripples
+    // are matching with the current theme palette and are in contrast to the background color
+    // (e.g in themed toolbars).
+    .mat-ripple-element {
+      opacity: $_mat-button-ripple-opacity;
+      background-color: currentColor;
+    }
+  }
+
+  .mat-button-focus-overlay {
+    background: map_get($foreground, base);
+  }
+
+  // Note: this needs a bit extra specificity, because we're not guaranteed the inclusion
+  // order of the theme styles and the button reset may end up resetting this as well.
+  .mat-stroked-button:not([disabled]) {
+    border-color: mat-color($foreground, divider);
+  }
+
+  .mat-flat-button,
+  .mat-raised-button,
+  .mat-fab,
+  .mat-mini-fab {
+    // Default font and background color when not using any color palette.
+    color: mat-color($foreground, text);
+    background-color: mat-color($background, raised-button);
+
+    @include _mat-button-theme-property($theme, "color", default-contrast);
+    @include _mat-button-theme-property($theme, "background-color", default);
+    @include _mat-button-ripple-color($theme, default-contrast);
+  }
+
+  .mat-stroked-button,
+  .mat-flat-button {
+    @include _mat-theme-overridable-elevation(0, $theme);
+  }
+
+  .mat-raised-button {
+    @include _mat-theme-overridable-elevation(2, $theme);
+
+    &:not([disabled]):active {
+      @include _mat-theme-overridable-elevation(8, $theme);
+    }
+
+    &[disabled] {
+      @include _mat-theme-overridable-elevation(0, $theme);
+    }
+  }
+
+  .mat-fab,
+  .mat-mini-fab {
+    @include _mat-theme-overridable-elevation(6, $theme);
+
+    &:not([disabled]):active {
+      @include _mat-theme-overridable-elevation(12, $theme);
+    }
+
+    &[disabled] {
+      @include _mat-theme-overridable-elevation(0, $theme);
+    }
+  }
+}

@@ -1,0 +1,91 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<IsPackable>false</IsPackable>
+		<SpaRoot>ClientApp\</SpaRoot>
+		<SpaProxyServerUrl>https://localhost:44401</SpaProxyServerUrl>
+		<SpaProxyLaunchCommand>npm start</SpaProxyLaunchCommand>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<ServerGarbageCollection>true</ServerGarbageCollection>
+		<UserSecretsId>c09d0480-c94d-47a5-a520-95e13ba3d606</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.SignalR.Common" Version="6.0.8" />
+		<PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="6.0.8" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.4.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Don't publish the SPA source files, but do show them in the project files list -->
+		<Content Remove="$(SpaRoot)**" />
+		<None Remove="$(SpaRoot)**" />
+		<None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\UCare.Application\UCare.Application.csproj" />
+		<ProjectReference Include="..\UCare.Comunication.Service\UCare.Comunication.Service.csproj" />
+		<ProjectReference Include="..\UCare.Infrastructure.AlertService\UCare.Infrastructure.AlertService.csproj" />
+		<ProjectReference Include="..\UCare.Infrastructure.Firebase\UCare.Infrastructure.Firebase.csproj" />
+		<ProjectReference Include="..\UCare.Infrastructure.GoogleApi\UCare.Infrastructure.GoogleApi.csproj" />
+		<ProjectReference Include="..\UCare.Infrastructure.SendinBlue\UCare.Infrastructure.SendinBlue.csproj" />
+		<ProjectReference Include="..\UCare.Infrastructure.SMS.Twilio\UCare.Infrastructure.SMS.Twilio.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Update="appsettings.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Update="codigos.paices.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Update="firebase.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Update="web.config">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="log4netConfig.xml">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
+	<Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+		<!-- Ensure Node.js is installed -->
+		<Exec Command="node --version" ContinueOnError="true">
+			<Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+		</Exec>
+		<Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+		<Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+		<Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+	</Target>
+
+	<Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+		<!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+		<Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+		<Exec WorkingDirectory="$(SpaRoot)" Command="npm run build -- --base-href=$(BASE_URL)" />
+
+		<!-- Include the newly-built files in the publish output -->
+		<ItemGroup>
+			<DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
+			<ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+				<RelativePath>wwwroot\%(RecursiveDir)%(FileName)%(Extension)</RelativePath>
+				<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+				<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+			</ResolvedFileToPublish>
+		</ItemGroup>
+	</Target>
+
+	<ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+</Project>

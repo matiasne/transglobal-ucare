@@ -1,0 +1,40 @@
+<gq-search-crud *ngIf="isModeSearch()"
+                [page]="page"
+                [showExport]="false"
+                [showImport]="false"
+                [showAdd]="false"
+                [showSearch]="false"
+                [columnDefs]="columnDefs"
+                (onItemClicked)="onGridRowClicked($event)"
+                (onClickAdd)="onAdd()"
+                (onClickSearch)="onClickSearch($event)"
+                (onSearch)="onSearch()"
+                [showPaging]="false"
+                windowsTitle="Historial"
+                descripcion="Aquí podrás ver el listado de reportes y alertas del sistema."
+                addText="Agregar"
+                filterText="Filtrar Roles">
+  <div class="search">
+    <div class="button" (click)="onSelectEmergencias()" [class]="{'selected':IsEmergencias}">
+      <div class="icon-estado red"></div>
+      <div class="label-estado">Emergencias </div>
+    </div>
+    <div class="button" (click)="onSelectUrgencias()" [class]="{'selected':IsUrgencias}">
+      <div class="icon-estado yellow"></div>
+      <div class="label-estado">Urgencias </div>
+    </div>
+    <div class="button" (click)="onSelectFalsaAlarma()" [class]="{'selected':IsFalsaAlarma}">
+      <div class="icon-estado blue"></div>
+      <div class="label-estado">Falsa alarma </div>
+    </div>
+  </div>
+  <form *ngIf="formSearch!==undefined" [formGroup]="formSearch" autocomplete="off" class="col-2">
+    <div class="w-100 search-buscar">
+      <gq-button icon="search" (click)="onSearch()" label="Buscar"></gq-button>
+    </div>
+    <ngx-slider [(value)]="edadMin" [(highValue)]="edadMax" [options]="optionsSlider"></ngx-slider>
+    <gq-input label="Genero" formControlName="genero" type="select" [data]="generosTodos"></gq-input>
+    <gq-input label="Desde" formControlName="desde" type="date"></gq-input>
+    <gq-input label="Hasta" formControlName="hasta" type="date"></gq-input>
+  </form>
+</gq-search-crud>

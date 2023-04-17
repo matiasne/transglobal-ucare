@@ -1,0 +1,11 @@
+<div class="card-body" [style.padding]="paddingfix">
+  <ng-content></ng-content>
+</div>
+<div *ngIf="showHeader" class="buttons">
+  <gq-button *ngIf="showCancel" type="stroked-button" icon="close" (click)="onCancelButton()" [titleText]="'Cancelar'" [label]="'Cancelar'" style="margin-left: 5px !important;"></gq-button>
+  <gq-button *ngIf="showSave" type="button-form" icon="done" (click)="onSave()" [titleText]="'Guardar'" [label]="'Guardar'" style="margin-left: 5px !important;"></gq-button>
+  <gq-button *ngIf="showSaveAndContinue" type="mini-fab" icon="check_circle_outline" (click)="onSaveAndContinue()" [titleText]="'Guardar y continuar'" style="margin-left: 5px !important;"></gq-button>
+  <gq-button *ngIf="showExport" type="mini-fab" icon="arrow_circle_down" (click)="onExport()" [titleText]="'Exportar'" style="margin-left: 5px !important;"></gq-button>
+  <gq-button *ngIf="showReturn" type="button-form" icon="close" (click)="onReturn()" [titleText]="'Volver'" [label]="'Volver'" style="margin-left: 5px !important;"></gq-button>
+  <gq-button *ngIf="showEdit" type="button-form" icon="edit" [color]="'secundary'" (click)="onEdit()" [titleText]="'Editar'" [label]="'Editar'" style="margin-left: 5px !important;"></gq-button>
+</div>

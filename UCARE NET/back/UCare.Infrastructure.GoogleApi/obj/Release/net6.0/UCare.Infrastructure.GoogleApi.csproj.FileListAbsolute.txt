@@ -1,0 +1,15 @@
+C:\Proyectos\WebApps\transglobal-ucare\UCARE NET\back\UCare.Infrastructure.GoogleApi\bin\Release\net6.0\UCare.Infrastructure.GoogleApi.deps.json
+C:\Proyectos\WebApps\transglobal-ucare\UCARE NET\back\UCare.Infrastructure.GoogleApi\bin\Release\net6.0\UCare.Infrastructure.GoogleApi.dll
+C:\Proyectos\WebApps\transglobal-ucare\UCARE NET\back\UCare.Infrastructure.GoogleApi\bin\Release\net6.0\UCare.Infrastructure.GoogleApi.pdb
+C:\Proyectos\WebApps\transglobal-ucare\UCARE NET\back\UCare.Infrastructure.GoogleApi\bin\Release\net6.0\UCare.Shared.dll
+C:\Proyectos\WebApps\transglobal-ucare\UCARE NET\back\UCare.Infrastructure.GoogleApi\bin\Release\net6.0\UCare.Shared.pdb
+C:\Proyectos\WebApps\transglobal-ucare\UCARE NET\back\UCare.Infrastructure.GoogleApi\obj\Release\net6.0\UCare.Infrastructure.GoogleApi.csproj.AssemblyReference.cache
+C:\Proyectos\WebApps\transglobal-ucare\UCARE NET\back\UCare.Infrastructure.GoogleApi\obj\Release\net6.0\UCare.Infrastructure.GoogleApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proyectos\WebApps\transglobal-ucare\UCARE NET\back\UCare.Infrastructure.GoogleApi\obj\Release\net6.0\UCare.Infrastructure.GoogleApi.AssemblyInfoInputs.cache
+C:\Proyectos\WebApps\transglobal-ucare\UCARE NET\back\UCare.Infrastructure.GoogleApi\obj\Release\net6.0\UCare.Infrastructure.GoogleApi.AssemblyInfo.cs
+C:\Proyectos\WebApps\transglobal-ucare\UCARE NET\back\UCare.Infrastructure.GoogleApi\obj\Release\net6.0\UCare.Infrastructure.GoogleApi.csproj.CoreCompileInputs.cache
+C:\Proyectos\WebApps\transglobal-ucare\UCARE NET\back\UCare.Infrastructure.GoogleApi\obj\Release\net6.0\UCare.Infrastructure.GoogleApi.csproj.CopyComplete
+C:\Proyectos\WebApps\transglobal-ucare\UCARE NET\back\UCare.Infrastructure.GoogleApi\obj\Release\net6.0\UCare.Infrastructure.GoogleApi.dll
+C:\Proyectos\WebApps\transglobal-ucare\UCARE NET\back\UCare.Infrastructure.GoogleApi\obj\Release\net6.0\refint\UCare.Infrastructure.GoogleApi.dll
+C:\Proyectos\WebApps\transglobal-ucare\UCARE NET\back\UCare.Infrastructure.GoogleApi\obj\Release\net6.0\UCare.Infrastructure.GoogleApi.pdb
+C:\Proyectos\WebApps\transglobal-ucare\UCARE NET\back\UCare.Infrastructure.GoogleApi\obj\Release\net6.0\ref\UCare.Infrastructure.GoogleApi.dll

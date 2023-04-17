@@ -1,0 +1,83 @@
+:host {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  display: grid;
+  grid-template-columns: 1fr 400px 1fr;
+  grid-template-rows: 82px 82px 48px 58px 500px 1fr;
+  grid-template-areas: "header header header" "m1 title m3" "m1 title1 m3" "m1 title2 m3" "m1 center m3" "m1 footer m3";
+}
+small {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.logo {
+  padding-left: 50px;
+  grid-area: header;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  background: #6B0BF3;
+}
+
+.bienvenida1 {
+  grid-area: title1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: SF Pro Display;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000;
+}
+
+.bienvenida2 {
+  grid-area: title2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #9D9D9D;
+}
+
+.login-position {
+  grid-area: center;
+  padding: 15px;
+}
+
+.login-position > h1 {
+  text-align: center;
+}
+
+.login-position > div {
+  margin: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.login-position > div > * {
+  display: block;
+  position: relative;
+  width: auto;
+}
+
+.login-position > gq-button {
+  display: block;
+  position: relative;
+  width: 100%;
+}

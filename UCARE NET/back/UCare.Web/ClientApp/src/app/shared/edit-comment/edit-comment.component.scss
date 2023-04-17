@@ -1,0 +1,55 @@
+:host {
+  display: block;
+  position: relative;
+  padding-bottom: 42px;
+  margin-bottom: 5px;
+}
+
+quill-editor, div {
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 0.5px solid #aaa;
+}
+
+div > textarea {
+  position: absolute;
+  top: 30px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: calc(100% - 5px);
+  height: calc(100% - 35px);
+}
+
+div > iframe {
+  position: absolute;
+  top: 30px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: calc(100% - 30px);
+}
+
+iframe {
+  border: none;
+}
+
+div > div {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  height: 28px;
+}
+
+mat-hint {
+  position: absolute;
+  bottom: 0;
+}

@@ -1,0 +1,16 @@
+<form *ngIf="formSearch!==undefined" [formGroup]="formSearch" style="position: absolute; right: 5px; bottom: 36px;">
+  <gq-button *ngIf="showSearch" type="mini-fab" icon="search" style="float:right;" (click)="onSearch()" titleText="Buscar"></gq-button>
+  <ng-template *ngTemplateOutlet="moAddButtonTemplate ?? addButtonTemplateDefault; context{item: this}">
+  </ng-template>
+  <gq-button *ngIf="showExport" type="mini-fab" icon="arrow_circle_down" style="float:right;" (click)="onExport()" titleText="Exportar"></gq-button>
+  <div *ngIf="showImport" style="float:right;position:relative;">
+    <gq-button type="mini-fab" icon="arrow_circle_up" [color]="'accent'" titleText="Importar"></gq-button>
+    <input type="file" style="position:absolute; top:0; left:0; width:40px;height:40px;opacity:0;cursor:pointer;" matTooltip="Importar" matTooltipClass="mo-tooltip" (change)="onImport($event)" />
+  </div>
+</form>
+<div #content >
+  <ng-content></ng-content>
+</div>
+<ng-template #addButtonTemplateDefault let-item="item">
+  <gq-button *ngIf="item.showAdd" type="mini-fab" icon="add" style="float:right;" (click)="item.onAdd()" [color]="'warn'" [titleText]='addText'></gq-button>
+</ng-template>

@@ -1,0 +1,357 @@
+/* You can add global styles to this file, and also import other style files */
+@import "assets/fonts/inter/inter.css";
+@import "assets/fonts/SFPro/SFPro.css";
+
+@import "ag-grid-community/dist/styles/ag-grid.css";
+@import "ag-grid-community/dist/styles/ag-theme-material.css";
+@import "ag-grid-community/dist/styles/ag-theme-alpine.css";
+@import "ag-grid-community/dist/styles/ag-theme-balham.css";
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.bubble.css';
+@import '~quill/dist/quill.snow.css';
+
+.timepicker-overlay {
+  z-index: 10000000 !important;
+}
+
+.timepicker-backdrop-overlay {
+  z-index: 10000000 !important;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48
+}
+
+:root {
+  --mo-alert-color: #ff5050;
+  --mo-surface-color: #fff;
+  --mo-card-box-shadow: 0px 4px 4px 3px rgba(0,0,0,0.1);
+  --mo-text-font-family: Inter;
+  --mo-general-text-color: #000;
+  --gq-button-background: linear-gradient(180deg, #6B0BF3 0%, #9D57D3 100%);
+  --gq-button-background2: linear-gradient(180deg, #6B0BF399 0%, #9D57D399 100%);
+}
+
+.mat-button-wrapper {
+  width: 100%;
+}
+
+.m-r {
+  margin-right: 10px;
+}
+
+.m-l {
+  margin-left: 10px;
+}
+
+.m-t {
+  margin-top: 10px;
+}
+
+.m-b {
+  margin-bottom: 10px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--mo-text-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.f-center {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.header1 {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #000;
+}
+
+.header2 {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #9D9D9D
+}
+
+.footer1 {
+  padding: 10px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.mat-toolbar.mat-primary {
+  background: #6B0BF3;
+  color: #000;
+}
+
+.mat-stroked-button:not(.mat-button-disabled) {
+  border-image-slice: 1;
+  border-width: 2px;
+  /*border-image-source: var(--gq-button-background);*/
+  border-color: #9D57D3;
+  border-radius: 4px;
+}
+
+.flat-button, .mat-raised-button {
+  border-radius: 4px !important;
+}
+
+.mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+  background-color: none;
+  background: var(--gq-button-background);
+}
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background: var(--gq-button-background2);
+}
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background: var(--gq-button-background);
+}
+
+  quill-editor {
+    position: relative;
+    display: block;
+    padding-bottom: 42px;
+  }
+
+  mo-search > div > form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  mo-search > div > form > * {
+    width: calc(calc(100% / 3) - 10px);
+    max-width: calc(calc(100% / 3) - 10px);
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  mo-search > div > form.col-1 > * {
+    width: calc(calc(100% / 12) - 10px);
+    max-width: calc(calc(100% / 12) - 10px);
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  mo-search > div > form.col-2 > * {
+    width: calc(calc(100% / 6) - 10px);
+    max-width: calc(calc(100% / 6) - 10px);
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  mo-search > div > form.col-3 > * {
+    width: calc(calc(100% / 4) - 10px);
+    max-width: calc(calc(100% / 4) - 10px);
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  mo-search > div > form.col-4 > * {
+    width: calc(calc(100% / 3) - 10px);
+    max-width: calc(calc(100% / 3) - 10px);
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  mo-search > div > form.col-6 > * {
+    width: calc(calc(100% / 2) - 10px);
+    max-width: calc(calc(100% /2) - 10px);
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .form-cols {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .form-1-cols > * {
+    width: calc(100% - 10px);
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .form-2-cols > * {
+    width: calc(calc(100% / 2) - 20px);
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .form-3-cols > * {
+    width: calc(calc(100% / 3) - 30px);
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .form-4-cols > * {
+    width: calc(calc(100% / 4) - 40px);
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  @-webkit-keyframes rotating /* Safari and Chrome */ {
+    from {
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+
+    to {
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes rotating {
+    from {
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+
+    to {
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
+  .rotating {
+    -webkit-animation: rotating 2s linear infinite;
+    -moz-animation: rotating 2s linear infinite;
+    -ms-animation: rotating 2s linear infinite;
+    -o-animation: rotating 2s linear infinite;
+    animation: rotating 2s linear infinite;
+  }
+
+  .mo-alert .mat-dialog-container {
+    padding: 20px 24px;
+    box-shadow: var(--mo-card-box-shadow);
+    background-color: var(--mo-surface-color);
+    width: 462px;
+    min-height: 218px;
+    overflow: hidden;
+  }
+
+  .mo-alert-patologia .mat-dialog-container {
+    width: 110vh;
+  }
+
+  .mo-alert-content-edit .mat-dialog-container {
+    width: 1000px;
+    height: 383px;
+  }
+
+  .mo-alert-exercise-edit .mat-dialog-container {
+    width: 900px;
+    height: 506px;
+  }
+
+  .mo-alert-patient-content .mat-dialog-container {
+    width: 1250px;
+  }
+
+  .mo-alert-sesion .mat-dialog-container {
+    width: 550px;
+    overflow: unset;
+    padding: 0px;
+  }
+
+  .mo-alert-exercises-list .mat-dialog-container {
+    min-width: 1000px;
+    height: 600px
+  }
+
+  @media screen and (max-width: 1230px) {
+
+    .mo-alert-exercises-list .mat-dialog-container {
+      min-width: 800px;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+
+    .mo-alert-exercises-list .mat-dialog-container {
+      min-width: 600px;
+    }
+  }
+
+  .ql-html:after {
+    content: "HTML";
+  }
+
+
+  .ql-font-roboto {
+    font-family: var(--mo-text-font-family);
+  }
+
+  .select-button {
+    background-color: none;
+    background: var(--gq-button-background);
+    border-radius: 4px;
+  }
+
+  .select-button .mat-select-arrow, .select-button mat-label, .select-button .mat-select-value-text {
+    color: #fff !important;
+  }
+
+  .select-button mat-label, .select-button .mat-select-value-text {
+    color: #fff !important;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding-left: 10px;
+  }
+
+  .select-button .mat-option-text {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+
+  .select-button .mat-form-field-underline {
+    display: none;
+  }

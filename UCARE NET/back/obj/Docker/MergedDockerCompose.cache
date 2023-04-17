@@ -1,0 +1,90 @@
+name: dockercompose17291944841950755576
+services:
+  certbot:
+    entrypoint:
+    - /bin/sh
+    - -c
+    - trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;
+    image: certbot/certbot
+    networks:
+      default: null
+    volumes:
+    - type: bind
+      source: C:\Proyectos\WebApps\transglobal-ucare\UCARE NET\back\data\certbot\conf
+      target: /etc/letsencrypt
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Proyectos\WebApps\transglobal-ucare\UCARE NET\back\data\certbot\www
+      target: /var/www/certbot
+      bind:
+        create_host_path: true
+  nginx:
+    command:
+    - /bin/sh
+    - -c
+    - while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g "daemon off;"
+    depends_on:
+      ucare.web:
+        condition: service_started
+    image: nginx:alpine
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: "80"
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      published: "443"
+      protocol: tcp
+    restart: always
+    volumes:
+    - type: bind
+      source: C:\Proyectos\WebApps\transglobal-ucare\UCARE NET\back\data\nginx
+      target: /etc/nginx/conf.d
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Proyectos\WebApps\transglobal-ucare\UCARE NET\back\data\certbot\conf
+      target: /etc/letsencrypt
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Proyectos\WebApps\transglobal-ucare\UCARE NET\back\data\certbot\www
+      target: /var/www/certbot
+      bind:
+        create_host_path: true
+  ucare.web:
+    build:
+      context: C:\Proyectos\WebApps\transglobal-ucare\UCARE NET\back
+      dockerfile: UCare.Web/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://+:80
+    image: ucareweb:1.0.00.38
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: "8080"
+      protocol: tcp
+    restart: always
+    volumes:
+    - type: bind
+      source: C:\Users\mati_\AppData\Roaming/Microsoft/UserSecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\mati_\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+networks:
+  default:
+    name: dockercompose17291944841950755576_default
